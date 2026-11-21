@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fundación Data Life — Transparencia e Impacto Verificable</title>
+  <title>Fundación Data Life</title>
   <style>
     :root {
       --primary: #0f766e;
@@ -54,30 +54,33 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 20px;
       padding: 16px 0;
       flex-wrap: wrap;
     }
 
     .brand {
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 1.05rem;
       letter-spacing: 0.04em;
       color: var(--primary-dark);
       text-decoration: none;
+      white-space: nowrap;
     }
 
     nav {
       display: flex;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     nav a {
       text-decoration: none;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       font-weight: 500;
+      white-space: nowrap;
     }
 
     nav a:hover {
@@ -86,7 +89,7 @@
 
     /* Secciones */
     section {
-      padding: 56px 0;
+      padding: 48px 0;
     }
 
     .card-panel {
@@ -99,18 +102,18 @@
 
     /* Hero */
     .hero {
-      padding-top: 48px;
+      padding-top: 44px;
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 2.9rem);
       line-height: 1.15;
       margin-bottom: 18px;
       color: var(--text);
     }
 
     .hero p {
-      font-size: 1.12rem;
+      font-size: 1.1rem;
       color: var(--muted);
       max-width: 72ch;
       margin-bottom: 28px;
@@ -158,14 +161,14 @@
     }
 
     .section-title {
-      font-size: 1.75rem;
+      font-size: 1.7rem;
       margin-bottom: 10px;
       color: var(--text);
     }
 
     .section-subtitle {
       color: var(--muted);
-      margin-bottom: 28px;
+      margin-bottom: 26px;
       max-width: 68ch;
     }
 
@@ -313,221 +316,4 @@
     }
 
     .bars-preview span {
-      width: 34px;
-      border-radius: 8px 8px 0 0;
-      background: linear-gradient(180deg, var(--accent), var(--primary-dark));
-    }
-
-    .bars-preview span:nth-child(1) { height: 55%; }
-    .bars-preview span:nth-child(2) { height: 80%; }
-    .bars-preview span:nth-child(3) { height: 65%; }
-    .bars-preview span:nth-child(4) { height: 95%; }
-    .bars-preview span:nth-child(5) { height: 72%; }
-
-    .dashboard-embed h3 {
-      margin-bottom: 6px;
-    }
-
-    .dashboard-embed p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 28px 0;
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .footer-wrap {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container nav-wrap">
-      <a class="brand" href="#inicio">FUNDACIÓN DATA LIFE</a>
-      <nav>
-        <a href="#como-funciona">Cómo funciona</a>
-        <a href="#trazabilidad">Trazabilidad</a>
-        <a href="#indicadores">Indicadores</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#dashboards">Dashboards</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="inicio">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <div class="card-panel">
-          <h1>La transparencia no debería ser una promesa. Debería poder verificarse.</h1>
-          <p>
-            Transformamos datos, evidencia y participación ciudadana en impacto verificable para
-            animales, comunidades vulnerables y el medio ambiente.
-          </p>
-          <div class="actions-row">
-            <a class="btn btn-primary" href="#proyectos">Explorar proyectos</a>
-            <a class="btn btn-secondary" href="#dashboards">Ver Dashboard</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Cómo funciona -->
-    <section id="como-funciona">
-      <div class="container">
-        <div class="card-panel">
-          <h2 class="section-title">¿Cómo funciona?</h2>
-          <p class="section-subtitle">
-            Nuestro ciclo de trabajo conecta el diagnóstico en campo con la rendición de cuentas pública.
-          </p>
-          <div class="steps-grid">
-            <article class="step-card">
-              <div class="step-num">1</div>
-              <h3>Identificamos necesidades</h3>
-              <p>Detectamos brechas en bienestar animal, comunidades y entorno.</p>
-            </article>
-            <article class="step-card">
-              <div class="step-num">2</div>
-              <h3>Ejecutamos proyectos</h3>
-              <p>Intervenimos en territorio con acciones planificadas y medibles.</p>
-            </article>
-            <article class="step-card">
-              <div class="step-num">3</div>
-              <h3>Recolectamos evidencias</h3>
-              <p>Registramos soportes, actas, fotos y datos verificables en campo.</p>
-            </article>
-            <article class="step-card">
-              <div class="step-num">4</div>
-              <h3>Analizamos impacto y publicamos resultados</h3>
-              <p>Evaluamos métricas y abrimos los hallazgos a consulta pública.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Trazabilidad -->
-    <section id="trazabilidad">
-      <div class="container">
-        <div class="card-panel">
-          <div class="trace-box">
-            <h2 class="section-title">
-              Explora proyectos, consulta indicadores, revisa evidencias y sigue cada peso hasta su
-              origen, mediante trazabilidad total: evidencias, reportes y registros.
-            </h2>
-            <p>
-              Cada cifra publicada puede rastrearse hasta su soporte documental y registro de ejecución.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Indicadores -->
-    <section id="indicadores">
-      <div class="container">
-        <div class="card-panel">
-          <h2 class="section-title">Indicadores</h2>
-          <p class="section-subtitle">
-            Métricas base de seguimiento antes de publicar los reportes periódicos de ejecución.
-          </p>
-          <div class="metrics-grid">
-            <div class="metric-card">
-              <div class="metric-value">0</div>
-              <div class="metric-label">Evidencias</div>
-              <div class="metric-desc">Registros y soportes verificables</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-value">0</div>
-              <div class="metric-label">Beneficiarios</div>
-              <div class="metric-desc">Personas y animales atendidos</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-value">0</div>
-              <div class="metric-label">Proyectos</div>
-              <div class="metric-desc">Iniciativas activas y cerradas</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Proyectos destacados -->
-    <section id="proyectos">
-      <div class="container">
-        <div class="card-panel">
-          <h2 class="section-title">Proyectos destacados</h2>
-          <p class="section-subtitle">
-            Revisa las iniciativas en curso o abre el panel interactivo de datos e indicadores.
-          </p>
-          <div class="projects-grid">
-            <article class="project-card">
-              <img
-                src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80"
-                alt="Bienestar animal"
-              />
-              <div class="project-body">
-                <h3>Bienestar animal</h3>
-                <a class="project-link" href="#dashboards">Ver detalles →</a>
-              </div>
-            </article>
-            <article class="project-card">
-              <img
-                src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=900&q=80"
-                alt="Entorno y comunidad"
-              />
-              <div class="project-body">
-                <h3>Entorno y comunidad</h3>
-                <a class="project-link" href="#dashboards">Ver detalles →</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Dashboards interactivos -->
-    <section id="dashboards">
-      <div class="container">
-        <div class="card-panel">
-          <h2 class="section-title">Dashboards interactivos</h2>
-          <p class="section-subtitle">
-            Consulta abierta de métricas operativas, soportes y seguimiento de recursos.
-          </p>
-          <div class="dashboard-embed">
-            <div class="bars-preview" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <h3>Panel de indicadores, ejecución y evidencias</h3>
-            <p>
-              Espacio preparado para integrar el tablero interactivo público de Fundación Data Life.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-wrap">
-      <span>Fundación Data Life</span>
-      <span>https://www.datalifefoundation.org</span>
-    </div>
-  </footer>
-</body>
-</html>
+      width: 34px
