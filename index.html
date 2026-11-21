@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fundación Data Life — Arquitectura de Portada</title>
+  <title>Fundación Data Life — Transparencia e Impacto Verificable</title>
   <style>
     :root {
       --primary: #0f766e;
@@ -11,10 +11,11 @@
       --accent: #0284c7;
       --bg: #f1f5f9;
       --surface: #ffffff;
+      --surface-alt: #f8fafc;
       --text: #0f172a;
       --muted: #475569;
       --border: #cbd5e1;
-      --radius: 12px;
+      --radius: 14px;
     }
 
     * {
@@ -23,496 +24,510 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.5;
-      padding: 1.25rem;
+      line-height: 1.6;
     }
 
-    .page-wrapper {
-      max-width: 1160px;
+    .container {
+      max-width: 1080px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      padding: 0 20px;
     }
 
-    .block {
+    /* Encabezado */
+    header {
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* Secciones */
+    section {
+      padding: 56px 0;
+    }
+
+    .card-panel {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.35rem 1.5rem;
-      position: relative;
+      padding: 36px;
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
     }
 
-    .block-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--primary);
-      background: #f0fdfa;
-      border: 1px solid #99f6e4;
-      padding: 0.15rem 0.55rem;
-      border-radius: 6px;
-      margin-bottom: 0.65rem;
+    /* Hero */
+    .hero {
+      padding-top: 48px;
     }
 
-    /* BLOQUE 1: Cabecera superior compacta */
-    .b1-header {
-      max-width: 560px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 0.85rem 1.25rem;
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 18px;
+      color: var(--text);
     }
 
-    .b1-title {
-      font-size: 1.2rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--primary-dark);
-    }
-
-    /* BLOQUE 2: Hero / Propuesta de valor (¿Qué es esto?) */
-    .b2-hero h1 {
-      font-size: clamp(1.3rem, 2.6vw, 1.85rem);
-      font-weight: 800;
-      line-height: 1.3;
-      max-width: 920px;
-    }
-
-    /* Grilla principal de 2 columnas */
-    .main-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 1rem;
-      align-items: start;
-    }
-
-    .col-left,
-    .col-right {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    /* BLOQUE 3: ¿Cómo funciona? */
-    .b3-how h2 {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-    }
-
-    .steps-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .step-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.8rem;
-      padding: 0.7rem 0.85rem;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-    }
-
-    .step-num {
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.85rem;
-      display: grid;
-      place-items: center;
-    }
-
-    .step-text strong {
-      display: block;
-      font-size: 0.98rem;
-    }
-
-    .step-text span {
-      font-size: 0.85rem;
+    .hero p {
+      font-size: 1.12rem;
       color: var(--muted);
+      max-width: 72ch;
+      margin-bottom: 28px;
     }
 
-    /* BLOQUE 4: Trazabilidad y origen del dato (¿Puedo confiar?) */
-    .b4-trace h2 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .b4-trace p {
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    /* BLOQUE 5: Acciones principales (¿Qué hago ahora?) */
-    .b5-actions {
+    .actions-row {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0.9rem;
-      min-height: 170px;
-    }
-
-    .cta-row {
-      display: flex;
+      gap: 14px;
       flex-wrap: wrap;
-      gap: 0.85rem;
+      align-items: center;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.8rem 1.35rem;
+      padding: 12px 22px;
       border-radius: 10px;
-      font-weight: 700;
-      font-size: 0.95rem;
+      font-weight: 600;
+      font-size: 0.98rem;
       text-decoration: none;
-      transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
+      transition: 0.2s ease;
+      cursor: pointer;
     }
 
     .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      border: 2px solid var(--primary);
+      background-color: var(--primary);
+      color: #ffffff;
+      border: 1px solid var(--primary);
     }
 
     .btn-primary:hover {
-      background: var(--primary-dark);
-      border-color: var(--primary-dark);
+      background-color: var(--primary-dark);
     }
 
     .btn-secondary {
-      background: #fff;
+      background-color: var(--surface);
       color: var(--text);
-      border: 2px solid var(--border);
+      border: 1px solid var(--border);
     }
 
     .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: #f0f9ff;
+      border-color: var(--primary);
+      color: var(--primary);
     }
 
-    .b5-note {
-      font-size: 0.86rem;
+    .section-title {
+      font-size: 1.75rem;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 68ch;
+    }
+
+    /* Cómo funciona */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .step-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .step-num {
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .step-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      font-size: 0.95rem;
       color: var(--muted);
     }
 
-    /* BLOQUE 6: Contadores */
+    /* Trazabilidad */
+    .trace-box {
+      border-left: 4px solid var(--primary);
+      padding-left: 20px;
+    }
+
+    .trace-box p + p {
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    /* Indicadores */
     .metrics-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-      margin-top: 0.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
     }
 
-    .metric-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-top: 3px solid var(--primary);
-      border-radius: 8px;
-      padding: 0.8rem;
-      text-align: center;
+    .metric-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
     }
 
-    .metric-val {
-      font-size: 1.35rem;
+    .metric-value {
+      font-size: 2rem;
       font-weight: 800;
       color: var(--primary-dark);
+      margin-bottom: 6px;
     }
 
-    .metric-name {
-      font-size: 0.85rem;
+    .metric-label {
       font-weight: 700;
+      margin-bottom: 4px;
     }
 
     .metric-desc {
-      font-size: 0.74rem;
+      font-size: 0.9rem;
       color: var(--muted);
-      margin-top: 0.2rem;
     }
 
-    /* BLOQUE 7: Fotos Proyectos Destacados (Ver detalles) */
-    .b7-featured {
-      min-height: 230px;
-    }
-
-    .featured-cards {
+    /* Proyectos destacados */
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.85rem;
-      margin-top: 0.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
     }
 
-    .feat-card {
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
       overflow: hidden;
-      background: #f8fafc;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
+      background: var(--surface);
     }
 
-    .feat-card img {
+    .project-card img {
       width: 100%;
-      height: 120px;
+      height: 200px;
       object-fit: cover;
+      display: block;
+      background-color: #e2e8f0;
     }
 
-    .feat-card-body {
-      padding: 0.7rem 0.85rem;
+    .project-body {
+      padding: 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: space-between;
+      gap: 12px;
     }
 
-    .feat-card-title {
-      font-size: 0.88rem;
-      font-weight: 700;
+    .project-body h3 {
+      font-size: 1.1rem;
     }
 
-    .feat-link {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--primary);
-      white-space: nowrap;
+    .project-link {
+      color: var(--primary-dark);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
     }
 
-    /* BLOQUE 8: Dashboards */
-    .b8-dashboards {
-      min-height: 230px;
+    .project-link:hover {
+      text-decoration: underline;
     }
 
-    .dash-preview {
-      margin-top: 0.5rem;
-      background: #f8fafc;
-      border: 1px dashed #94a3b8;
-      border-radius: 10px;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
+    /* Dashboards */
+    .dashboard-embed {
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      padding: 36px 24px;
+      text-align: center;
+      background: var(--surface-alt);
     }
 
-    .dash-bars {
+    .bars-preview {
       display: flex;
       align-items: flex-end;
-      gap: 0.6rem;
-      height: 95px;
-      padding-top: 0.5rem;
+      justify-content: center;
+      gap: 12px;
+      height: 110px;
+      margin-bottom: 18px;
     }
 
-    .bar {
-      flex: 1;
-      background: linear-gradient(180deg, var(--accent), var(--primary));
-      border-radius: 6px 6px 0 0;
+    .bars-preview span {
+      width: 34px;
+      border-radius: 8px 8px 0 0;
+      background: linear-gradient(180deg, var(--accent), var(--primary-dark));
     }
 
-    .dash-footer {
+    .bars-preview span:nth-child(1) { height: 55%; }
+    .bars-preview span:nth-child(2) { height: 80%; }
+    .bars-preview span:nth-child(3) { height: 65%; }
+    .bars-preview span:nth-child(4) { height: 95%; }
+    .bars-preview span:nth-child(5) { height: 72%; }
+
+    .dashboard-embed h3 {
+      margin-bottom: 6px;
+    }
+
+    .dashboard-embed p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-wrap {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    @media (max-width: 860px) {
-      .main-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 540px) {
-      .metrics-grid,
-      .featured-cards {
-        grid-template-columns: 1fr;
-      }
+      gap: 16px;
+      flex-wrap: wrap;
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio">FUNDACIÓN DATA LIFE</a>
+      <nav>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#trazabilidad">Trazabilidad</a>
+        <a href="#indicadores">Indicadores</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#dashboards">Dashboards</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="page-wrapper">
-
-    <!-- BLOQUE 1 -->
-    <header class="block b1-header">
-      <div class="b1-title">FUNDACIÓN DATA LIFE</div>
-    </header>
-
-    <!-- BLOQUE 2: Hero (¿Qué es esto?) -->
-    <section class="block b2-hero" aria-label="Propuesta de valor">
-      <span class="block-tag">Bloque 2 · Hero</span>
-      <h1>
-La transparencia no debería ser una promesa.
-Debería poder verificarse.
-</h1>
-
-<p>
-Transformamos datos, evidencia y participación ciudadana
-en impacto verificable para animales, comunidades
-vulnerables y el medio ambiente.
-</p>
+  <main id="inicio">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="card-panel">
+          <h1>La transparencia no debería ser una promesa. Debería poder verificarse.</h1>
+          <p>
+            Transformamos datos, evidencia y participación ciudadana en impacto verificable para
+            animales, comunidades vulnerables y el medio ambiente.
+          </p>
+          <div class="actions-row">
+            <a class="btn btn-primary" href="#proyectos">Explorar proyectos</a>
+            <a class="btn btn-secondary" href="#dashboards">Ver Dashboard</a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- CUERPO DE DOS COLUMNAS -->
-    <div class="main-layout">
+    <!-- Cómo funciona -->
+    <section id="como-funciona">
+      <div class="container">
+        <div class="card-panel">
+          <h2 class="section-title">¿Cómo funciona?</h2>
+          <p class="section-subtitle">
+            Nuestro ciclo de trabajo conecta el diagnóstico en campo con la rendición de cuentas pública.
+          </p>
+          <div class="steps-grid">
+            <article class="step-card">
+              <div class="step-num">1</div>
+              <h3>Identificamos necesidades</h3>
+              <p>Detectamos brechas en bienestar animal, comunidades y entorno.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-num">2</div>
+              <h3>Ejecutamos proyectos</h3>
+              <p>Intervenimos en territorio con acciones planificadas y medibles.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-num">3</div>
+              <h3>Recolectamos evidencias</h3>
+              <p>Registramos soportes, actas, fotos y datos verificables en campo.</p>
+            </article>
+            <article class="step-card">
+              <div class="step-num">4</div>
+              <h3>Analizamos impacto y publicamos resultados</h3>
+              <p>Evaluamos métricas y abrimos los hallazgos a consulta pública.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <!-- COLUMNA IZQUIERDA: 3 (Cómo funciona) -> 6 (Indicadores) -> 7 (Proyectos destacados) -->
-      <div class="col-left">
+    <!-- Trazabilidad -->
+    <section id="trazabilidad">
+      <div class="container">
+        <div class="card-panel">
+          <div class="trace-box">
+            <h2 class="section-title">
+              Explora proyectos, consulta indicadores, revisa evidencias y sigue cada peso hasta su
+              origen, mediante trazabilidad total: evidencias, reportes y registros.
+            </h2>
+            <p>
+              Cada cifra publicada puede rastrearse hasta su soporte documental y registro de ejecución.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- BLOQUE 3: ¿Cómo funciona? -->
-        <section class="block b3-how" id="como-funciona">
-          <span class="block-tag">Bloque 3 · Cómo funciona</span>
-          <h2>¿Cómo funciona?</h2>
-          <ol class="steps-list">
-            <li class="step-item">
-              <span class="step-num">1</span>
-              <div class="step-text">
-                <strong>Identificamos necesidades</strong>
-                <span>Detectamos brechas en bienestar animal, comunidades y entorno.</span>
-              </div>
-            </li>
-            <li class="step-item">
-              <span class="step-num">2</span>
-              <div class="step-text">
-                <strong>Ejecutamos proyectos</strong>
-                <span>Intervenimos en territorio con acciones planificadas y medibles.</span>
-              </div>
-            </li>
-            <li class="step-item">
-              <span class="step-num">3</span>
-              <div class="step-text">
-                <strong>Recolectamos evidencias</strong>
-                <span>Registramos soportes, actas, fotos y datos verificables en campo.</span>
-              </div>
-            </li>
-            <li class="step-item">
-              <span class="step-num">4</span>
-              <div class="step-text">
-                <strong>Analizamos impacto y publicamos resultados</strong>
-                <span>Evaluamos métricas y abrimos los hallazgos a consulta pública.</span>
-              </div>
-            </li>
-          </ol>
-        </section>
-
-        <!-- BLOQUE 6: Contadores -->
-        <section class="block b6-metrics" aria-label="Indicadores de impacto">
-          <span class="block-tag">Bloque 6 · Indicadores</span>
+    <!-- Indicadores -->
+    <section id="indicadores">
+      <div class="container">
+        <div class="card-panel">
+          <h2 class="section-title">Indicadores</h2>
+          <p class="section-subtitle">
+            Métricas base de seguimiento antes de publicar los reportes periódicos de ejecución.
+          </p>
           <div class="metrics-grid">
-            <div class="metric-box">
-              <div class="metric-val"># 000</div>
-              <div class="metric-name"># Evidencias</div>
+            <div class="metric-card">
+              <div class="metric-value">0</div>
+              <div class="metric-label">Evidencias</div>
               <div class="metric-desc">Registros y soportes verificables</div>
             </div>
-            <div class="metric-box">
-              <div class="metric-val"># 000</div>
-              <div class="metric-name"># Beneficiarios</div>
+            <div class="metric-card">
+              <div class="metric-value">0</div>
+              <div class="metric-label">Beneficiarios</div>
               <div class="metric-desc">Personas y animales atendidos</div>
             </div>
-            <div class="metric-box">
-              <div class="metric-val"># 00</div>
-              <div class="metric-name"># Proyectos</div>
+            <div class="metric-card">
+              <div class="metric-value">0</div>
+              <div class="metric-label">Proyectos</div>
               <div class="metric-desc">Iniciativas activas y cerradas</div>
             </div>
           </div>
-        </section>
-
-        <!-- BLOQUE 7: Fotos proyectos destacados -->
-        <section class="block b7-featured" id="proyectos">
-          <span class="block-tag">Bloque 7 · Proyectos destacados</span>
-          <h3>Fotos proyectos destacados</h3>
-          <div class="featured-cards">
-            <a href="#detalle-proyecto-1" class="feat-card">
-              <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80" alt="Proyecto bienestar animal" />
-              <div class="feat-card-body">
-                <span class="feat-card-title">Bienestar animal</span>
-                <span class="feat-link">Ver detalles →</span>
-              </div>
-            </a>
-            <a href="#detalle-proyecto-2" class="feat-card">
-              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Proyecto ambiental y comunitario" />
-              <div class="feat-card-body">
-                <span class="feat-card-title">Entorno y comunidad</span>
-                <span class="feat-link">Ver detalles →</span>
-              </div>
-            </a>
-          </div>
-        </section>
-
+        </div>
       </div>
+    </section>
 
-      <!-- COLUMNA DERECHA: 4 (Trazabilidad) -> 5 (Acciones) -> 8 (Dashboards) -->
-      <div class="col-right">
-
-        <!-- BLOQUE 4: Trazabilidad y origen del dato (¿Puedo confiar?) -->
-        <section class="block b4-trace" id="trazabilidad">
-          <span class="block-tag">Bloque 4 · Trazabilidad</span>
-          <h2>
-            Explora proyectos, consulta indicadores, revisa evidencias y sigue cada peso hasta su
-            origen, mediante trazabilidad total: evidencias, reportes y registros.
-          </h2>
-          <p>
-            Cada cifra publicada puede rastrearse hasta su soporte documental y registro de ejecución.
-          </p>
-        </section>
-
-        <!-- BLOQUE 5: Acciones principales (¿Qué hago ahora?) -->
-        <section class="block b5-actions" aria-label="Acciones principales">
-          <span class="block-tag">Bloque 5 · Acciones</span>
-          <div class="cta-row">
-            <a href="#proyectos" class="btn btn-primary">Explorar proyectos</a>
-            <a href="#dashboards" class="btn btn-secondary">Ver Dashboard</a>
-          </div>
-          <p class="b5-note">
+    <!-- Proyectos destacados -->
+    <section id="proyectos">
+      <div class="container">
+        <div class="card-panel">
+          <h2 class="section-title">Proyectos destacados</h2>
+          <p class="section-subtitle">
             Revisa las iniciativas en curso o abre el panel interactivo de datos e indicadores.
           </p>
-        </section>
-
-        <!-- BLOQUE 8: Dashboards -->
-        <section class="block b8-dashboards" id="dashboards">
-          <span class="block-tag">Bloque 8 · Dashboards</span>
-          <h3>Dashboards interactivos</h3>
-          <div class="dash-preview">
-            <div class="dash-bars" aria-hidden="true">
-              <div class="bar" style="height: 55%;"></div>
-              <div class="bar" style="height: 80%;"></div>
-              <div class="bar" style="height: 65%;"></div>
-              <div class="bar" style="height: 95%;"></div>
-              <div class="bar" style="height: 75%;"></div>
-            </div>
-            <div class="dash-footer">
-              <span>Panel de indicadores, ejecución y evidencias</span>
-              <strong>Listo para embeber</strong>
-            </div>
+          <div class="projects-grid">
+            <article class="project-card">
+              <img
+                src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80"
+                alt="Bienestar animal"
+              />
+              <div class="project-body">
+                <h3>Bienestar animal</h3>
+                <a class="project-link" href="#dashboards">Ver detalles →</a>
+              </div>
+            </article>
+            <article class="project-card">
+              <img
+                src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=900&q=80"
+                alt="Entorno y comunidad"
+              />
+              <div class="project-body">
+                <h3>Entorno y comunidad</h3>
+                <a class="project-link" href="#dashboards">Ver detalles →</a>
+              </div>
+            </article>
           </div>
-        </section>
-
+        </div>
       </div>
+    </section>
 
+    <!-- Dashboards interactivos -->
+    <section id="dashboards">
+      <div class="container">
+        <div class="card-panel">
+          <h2 class="section-title">Dashboards interactivos</h2>
+          <p class="section-subtitle">
+            Consulta abierta de métricas operativas, soportes y seguimiento de recursos.
+          </p>
+          <div class="dashboard-embed">
+            <div class="bars-preview" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <h3>Panel de indicadores, ejecución y evidencias</h3>
+            <p>
+              Espacio preparado para integrar el tablero interactivo público de Fundación Data Life.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <span>Fundación Data Life</span>
+      <span>https://www.datalifefoundation.org</span>
     </div>
-  </div>
-
+  </footer>
 </body>
 </html>
