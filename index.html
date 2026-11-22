@@ -36,7 +36,7 @@
     }
 
     .container {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -47,14 +47,14 @@
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 30;
     }
 
     .nav-wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
       padding: 16px 0;
       flex-wrap: wrap;
     }
@@ -87,77 +87,16 @@
       color: var(--primary);
     }
 
-    /* Secciones */
     section {
-      padding: 48px 0;
+      padding: 44px 0;
     }
 
     .card-panel {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 36px;
+      padding: 34px;
       box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
-    }
-
-    /* Hero */
-    .hero {
-      padding-top: 44px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 2.9rem);
-      line-height: 1.15;
-      margin-bottom: 18px;
-      color: var(--text);
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 72ch;
-      margin-bottom: 28px;
-    }
-
-    .actions-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 0.98rem;
-      text-decoration: none;
-      transition: 0.2s ease;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: #ffffff;
-      border: 1px solid var(--primary);
-    }
-
-    .btn-primary:hover {
-      background-color: var(--primary-dark);
-    }
-
-    .btn-secondary {
-      background-color: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--primary);
-      color: var(--primary);
     }
 
     .section-title {
@@ -168,11 +107,100 @@
 
     .section-subtitle {
       color: var(--muted);
-      margin-bottom: 26px;
-      max-width: 68ch;
+      margin-bottom: 24px;
+      max-width: 72ch;
     }
 
-    /* Cómo funciona */
+    /* Hero */
+    .hero {
+      padding-top: 40px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 2.85rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 74ch;
+      margin-bottom: 24px;
+    }
+
+    .actions-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 0.2s ease;
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background-color: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary.active {
+      border-color: var(--primary);
+      background-color: #f0fdfa;
+      color: var(--primary-dark);
+    }
+
+    /* Home: Quiénes somos / Cómo funcionamos / Por qué confiar */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .pillar-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+    }
+
+    .pillar-card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -183,13 +211,13 @@
       background: var(--surface-alt);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 22px;
+      padding: 20px;
     }
 
     .step-num {
       display: inline-flex;
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       align-items: center;
       justify-content: center;
       border-radius: 999px;
@@ -197,66 +225,60 @@
       color: #ffffff;
       font-weight: 700;
       font-size: 0.9rem;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .step-card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-
-    .step-card p {
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    /* Trazabilidad */
-    .trace-box {
-      border-left: 4px solid var(--primary);
-      padding-left: 20px;
-    }
-
-    .trace-box p + p {
-      margin-top: 10px;
-      color: var(--muted);
-    }
-
-    /* Indicadores */
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-
-    .metric-card {
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-    }
-
-    .metric-value {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary-dark);
+      font-size: 1rem;
       margin-bottom: 6px;
     }
 
-    .metric-label {
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .metric-desc {
-      font-size: 0.9rem;
+    .step-card p {
+      font-size: 0.92rem;
       color: var(--muted);
     }
 
-    /* Proyectos destacados */
+    /* Controles de Proyectos */
+    .catalog-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding: 18px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .filter-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .filter-group select {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
+    /* Tarjetas de Proyecto */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
     }
 
     .project-card {
@@ -264,100 +286,207 @@
       border-radius: 12px;
       overflow: hidden;
       background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .project-card img {
       width: 100%;
-      height: 200px;
+      height: 185px;
       object-fit: cover;
       display: block;
       background-color: #e2e8f0;
     }
 
-    .project-body {
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
+    .project-content {
+      padding: 18px;
     }
 
-    .project-body h3 {
-      font-size: 1.1rem;
+    .project-title {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
     }
 
-    .project-link {
-      color: var(--primary-dark);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 0.95rem;
+    .project-meta {
+      list-style: none;
+      font-size: 0.92rem;
+      color: var(--muted);
+      display: grid;
+      gap: 6px;
+      margin-bottom: 16px;
     }
 
-    .project-link:hover {
-      text-decoration: underline;
+    .project-meta strong {
+      color: var(--text);
     }
 
-    /* Dashboards */
-    .dashboard-embed {
-      border: 2px dashed var(--border);
+    .project-footer {
+      padding: 0 18px 18px;
+    }
+
+    .empty-state {
+      border: 1px dashed var(--border);
       border-radius: 12px;
-      padding: 36px 24px;
+      padding: 28px;
       text-align: center;
+      color: var(--muted);
       background: var(--surface-alt);
     }
 
-    .bars-preview {
+    /* Vista Individual de Proyecto (/proyecto/{id}) */
+    .detail-panel {
+      margin-top: 28px;
+      border: 2px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 28px;
+      background: var(--surface-alt);
+    }
+
+    .detail-header {
       display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 12px;
-      height: 110px;
-      margin-bottom: 18px;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 22px;
     }
 
-    .bars-preview span {
-      width: 34px;
-      border-radius: 8px 8px 0 0;
-      background: linear-gradient(180deg, var(--accent), var(--primary-dark));
-    }
-
-    .bars-preview span:nth-child(1) { height: 55%; }
-    .bars-preview span:nth-child(2) { height: 80%; }
-    .bars-preview span:nth-child(3) { height: 65%; }
-    .bars-preview span:nth-child(4) { height: 95%; }
-    .bars-preview span:nth-child(5) { height: 72%; }
-
-    .dashboard-embed h3 {
-      margin-bottom: 6px;
-    }
-
-    .dashboard-embed p {
+    .detail-meta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
       color: var(--muted);
-      font-size: 0.95rem;
+      margin-top: 6px;
     }
 
-    /* Contacto y transparencia legal */
+    .detail-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .sub-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .sub-box h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+    }
+
+    .sub-box p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .kpi-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .kpi-num {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .kpi-txt {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .timeline-flow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .timeline-step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .timeline-arrow {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .evidence-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .tag {
+      background: #e2e8f0;
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .tech-note {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .tech-note code {
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    /* Contacto y transparencia */
     .legal-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      gap: 18px;
     }
 
     .legal-box {
       background: var(--surface-alt);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 22px;
+      padding: 20px;
     }
 
     .legal-box h3 {
       font-size: 1.05rem;
       margin-bottom: 8px;
-      color: var(--text);
     }
 
     .legal-box p {
-      font-size: 0.94rem;
+      font-size: 0.93rem;
       color: var(--muted);
     }
 
@@ -367,18 +496,13 @@
       text-decoration: none;
     }
 
-    .legal-box a:hover {
-      text-decoration: underline;
-    }
-
-    /* Footer */
     footer {
       background: var(--surface);
       border-top: 1px solid var(--border);
-      padding: 28px 0;
+      padding: 24px 0;
       margin-top: 24px;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     .footer-wrap {
@@ -388,29 +512,24 @@
       flex-wrap: wrap;
     }
 
-    /* Optimización para impresión o exportación a PDF */
     @media print {
-      header {
-        position: static;
+      header,
+      .catalog-controls,
+      .project-footer,
+      #cerrar-detalle {
+        display: none;
       }
 
       body {
         background: #ffffff;
       }
 
-      section {
-        padding: 18px 0;
-      }
-
       .card-panel,
-      .step-card,
-      .metric-card,
+      .detail-panel,
       .project-card,
-      .legal-box,
-      .dashboard-embed {
-        break-inside: avoid;
-        page-break-inside: avoid;
+      .sub-box {
         box-shadow: none;
+        break-inside: avoid;
       }
     }
   </style>
@@ -420,41 +539,65 @@
     <div class="container nav-wrap">
       <a class="brand" href="#inicio">FUNDACIÓN DATA LIFE</a>
       <nav>
-        <a href="#como-funciona">Cómo funciona</a>
-        <a href="#trazabilidad">Trazabilidad</a>
-        <a href="#indicadores">Indicadores</a>
+        <a href="#quienes-somos">¿Quiénes somos?</a>
+        <a href="#como-funcionamos">¿Cómo funcionamos?</a>
+        <a href="#por-que-confiar">¿Por qué confiar?</a>
         <a href="#proyectos">Proyectos</a>
-        <a href="#dashboards">Dashboards</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
 
   <main id="inicio">
-    <!-- Hero -->
-    <section class="hero">
+    <!-- HOME: ¿Quiénes somos? / ¿Cómo funcionamos? / ¿Por qué confiar? -->
+    <section class="hero" id="quienes-somos">
       <div class="container">
         <div class="card-panel">
           <h1>La transparencia no debería ser una promesa. Debería poder verificarse.</h1>
           <p>
-            Transformamos datos, evidencia y participación ciudadana en impacto verificable para
-            animales, comunidades vulnerables y el medio ambiente.
+            <strong>¿Quiénes somos?</strong> Fundación Data Life es una iniciativa dedicada a
+            transformar datos, evidencia y participación ciudadana en impacto verificable para el
+            bienestar animal, las comunidades vulnerables y el medio ambiente.
           </p>
+
+          <div class="pillars-grid" id="por-que-confiar">
+            <article class="pillar-card">
+              <h3>¿Quiénes somos?</h3>
+              <p>
+                Organización enfocada en medir y documentar acciones sociales, ambientales y de
+                bienestar animal con rigor metodológico.
+              </p>
+            </article>
+            <article class="pillar-card">
+              <h3>¿Cómo funcionamos?</h3>
+              <p>
+                Articulamos diagnóstico territorial, ejecución planificada, recolección de
+                evidencias y publicación abierta de resultados.
+              </p>
+            </article>
+            <article class="pillar-card">
+              <h3>¿Por qué confiar?</h3>
+              <p>
+                Cada indicador busca respaldarse con soportes verificables y trazabilidad documental,
+                sin cifras infladas ni promesas sin respaldo.
+              </p>
+            </article>
+          </div>
+
           <div class="actions-row">
             <a class="btn btn-primary" href="#proyectos">Explorar proyectos</a>
-            <a class="btn btn-secondary" href="#dashboards">Ver Dashboard</a>
+            <a class="btn btn-secondary" href="#como-funcionamos">Ver ciclo de trabajo</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Cómo funciona -->
-    <section id="como-funciona">
+    <section id="como-funcionamos">
       <div class="container">
         <div class="card-panel">
-          <h2 class="section-title">¿Cómo funciona?</h2>
+          <h2 class="section-title">¿Cómo funcionamos?</h2>
           <p class="section-subtitle">
-            Nuestro ciclo de trabajo conecta el diagnóstico en campo con la rendición de cuentas pública.
+            Nuestro ciclo conecta el trabajo en territorio con evidencias y consulta pública.
           </p>
           <div class="steps-grid">
             <article class="step-card">
@@ -474,7 +617,7 @@
             </article>
             <article class="step-card">
               <div class="step-num">4</div>
-              <h3>Analizamos impacto y publicamos resultados</h3>
+              <h3>Analizamos impacto y publicamos</h3>
               <p>Evaluamos métricas y abrimos los hallazgos a consulta pública.</p>
             </article>
           </div>
@@ -482,118 +625,196 @@
       </div>
     </section>
 
-    <!-- Trazabilidad -->
-    <section id="trazabilidad">
-      <div class="container">
-        <div class="card-panel">
-          <div class="trace-box">
-            <h2 class="section-title">
-              Explora proyectos, consulta indicadores, revisa evidencias y sigue cada peso hasta su
-              origen, mediante trazabilidad total: evidencias, reportes y registros.
-            </h2>
-            <p>
-              Cada cifra publicada puede rastrearse hasta su soporte documental y registro de ejecución.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Indicadores -->
-    <section id="indicadores">
-      <div class="container">
-        <div class="card-panel">
-          <h2 class="section-title">Indicadores</h2>
-          <p class="section-subtitle">
-            Métricas base de seguimiento antes de publicar los reportes periódicos de ejecución.
-          </p>
-          <div class="metrics-grid">
-            <div class="metric-card">
-              <div class="metric-value">0</div>
-              <div class="metric-label">Evidencias</div>
-              <div class="metric-desc">Registros y soportes verificables</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-value">0</div>
-              <div class="metric-label">Beneficiarios</div>
-              <div class="metric-desc">Personas y animales atendidos</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-value">0</div>
-              <div class="metric-label">Proyectos</div>
-              <div class="metric-desc">Iniciativas activas y cerradas</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Proyectos destacados -->
+    <!-- CATÁLOGO DE PROYECTOS: ¿Qué están haciendo exactamente? -->
     <section id="proyectos">
       <div class="container">
         <div class="card-panel">
-          <h2 class="section-title">Proyectos destacados</h2>
+          <h2 class="section-title">Proyectos — ¿Qué están haciendo exactamente?</h2>
           <p class="section-subtitle">
-            Revisa las iniciativas en curso o abre el panel interactivo de datos e indicadores.
+            Explora las iniciativas sociales y ambientales impulsadas por Fundación Data Life. Cada
+            proyecto incluye objetivos, evidencias, indicadores y seguimiento público.
           </p>
-          <div class="projects-grid">
-            <article class="project-card">
-              <img
-                src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80"
-                alt="Bienestar animal"
-              />
-              <div class="project-body">
-                <h3>Bienestar animal</h3>
-                <a class="project-link" href="#dashboards">Ver detalles →</a>
-              </div>
-            </article>
-            <article class="project-card">
-              <img
-                src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=900&q=80"
-                alt="Entorno y comunidad"
-              />
-              <div class="project-body">
-                <h3>Entorno y comunidad</h3>
-                <a class="project-link" href="#dashboards">Ver detalles →</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Dashboards interactivos -->
-    <section id="dashboards">
-      <div class="container">
-        <div class="card-panel">
-          <h2 class="section-title">Dashboards interactivos</h2>
-          <p class="section-subtitle">
-            Consulta abierta de métricas operativas, soportes y seguimiento de recursos.
-          </p>
-          <div class="dashboard-embed">
-            <div class="bars-preview" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+          <div class="catalog-controls">
+            <div class="actions-row" role="group" aria-label="Estado rápido">
+              <button type="button" class="btn btn-secondary" data-quick-status="Activo">Activos</button>
+              <button type="button" class="btn btn-secondary" data-quick-status="Finalizado">Finalizados</button>
+              <button type="button" class="btn btn-secondary active" data-quick-status="Todos">Todos</button>
             </div>
-            <h3>Panel de indicadores, ejecución y evidencias</h3>
-            <p>
-              Espacio preparado para integrar el tablero interactivo público de Fundación Data Life.
-            </p>
+
+            <div class="filters-grid">
+              <div class="filter-group">
+                <label for="filtro-categoria">Categoría</label>
+                <select id="filtro-categoria">
+                  <option value="Todas">Todas</option>
+                  <option value="Bienestar Animal">Bienestar Animal</option>
+                  <option value="Conservación">Conservación</option>
+                  <option value="Educación">Educación</option>
+                  <option value="Comunidad">Comunidad</option>
+                  <option value="Investigación">Investigación</option>
+                  <option value="Comunidades vulnerables">Comunidades vulnerables</option>
+                  <option value="Músculo financiero autosostenible">Músculo financiero autosostenible</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="filtro-estado">Estado</label>
+                <select id="filtro-estado">
+                  <option value="Todos">Todos</option>
+                  <option value="Activo">🟢 Activo</option>
+                  <option value="En preparación">🟡 En preparación</option>
+                  <option value="Finalizado">⚪ Finalizado</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="filtro-ubicacion">Ubicación</label>
+                <select id="filtro-ubicacion">
+                  <option value="Todas">Todas</option>
+                  <option value="Por definir">Por definir</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="filtro-anio">Año</label>
+                <select id="filtro-anio">
+                  <option value="Todos">Todos</option>
+                  <option value="Por definir">Por definir</option>
+                  <option value="2026">2026</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div id="lista-proyectos" class="projects-grid"></div>
+
+          <!-- VISTA INDIVIDUAL DE PROYECTO (/proyecto/{id}) -->
+          <div id="detalle-proyecto" class="detail-panel" hidden>
+            <div class="detail-header">
+              <div>
+                <h3 id="det-nombre" style="font-size: 1.5rem;"></h3>
+                <div class="detail-meta-row">
+                  <span id="det-estado"></span>
+                  <span id="det-fecha"></span>
+                  <span id="det-responsable"></span>
+                  <span id="det-categoria"></span>
+                </div>
+              </div>
+              <button type="button" class="btn btn-secondary" id="cerrar-detalle">Cerrar detalle</button>
+            </div>
+
+            <div class="detail-grid-2">
+              <div class="sub-box">
+                <h4>Problema detectado</h4>
+                <p id="det-problema"></p>
+              </div>
+              <div class="sub-box">
+                <h4>Objetivo</h4>
+                <p id="det-objetivo"></p>
+              </div>
+              <div class="sub-box">
+                <h4>Alcance</h4>
+                <p id="det-alcance"></p>
+              </div>
+              <div class="sub-box">
+                <h4>Resultados esperados</h4>
+                <p id="det-resultados-esperados"></p>
+              </div>
+            </div>
+
+            <h4 style="margin-bottom: 10px;">Indicadores</h4>
+            <div class="kpi-row">
+              <div class="kpi-box">
+                <div class="kpi-num" id="det-beneficiarios">0</div>
+                <div class="kpi-txt">Beneficiarios</div>
+              </div>
+              <div class="kpi-box">
+                <div class="kpi-num" id="det-evidencias">0</div>
+                <div class="kpi-txt">Evidencias</div>
+              </div>
+              <div class="kpi-box">
+                <div class="kpi-num" id="det-actividades">0</div>
+                <div class="kpi-txt">Actividades</div>
+              </div>
+              <div class="kpi-box">
+                <div class="kpi-num" id="det-aliados">0</div>
+                <div class="kpi-txt">Aliados</div>
+              </div>
+            </div>
+
+            <h4 style="margin-bottom: 10px;">Línea de tiempo</h4>
+            <div class="timeline-flow">
+              <span class="timeline-step">Inicio proyecto</span>
+              <span class="timeline-arrow">↓</span>
+              <span class="timeline-step">Diagnóstico</span>
+              <span class="timeline-arrow">↓</span>
+              <span class="timeline-step">Ejecución</span>
+              <span class="timeline-arrow">↓</span>
+              <span class="timeline-step">Validación</span>
+              <span class="timeline-arrow">↓</span>
+              <span class="timeline-step">Cierre</span>
+            </div>
+
+            <div class="detail-grid-2">
+              <div class="sub-box">
+                <h4>Evidencias (Galería y soportes)</h4>
+                <p id="det-evidencias-desc"></p>
+                <div class="evidence-tags">
+                  <span class="tag">Fotos</span>
+                  <span class="tag">Videos</span>
+                  <span class="tag">Documentos</span>
+                  <span class="tag">Informes</span>
+                  <span class="tag">Soportes</span>
+                </div>
+              </div>
+
+              <div class="sub-box">
+                <h4>Impacto</h4>
+                <p><strong>¿Qué cambió?</strong> <span id="det-cambio"></span></p>
+                <p><strong>¿Qué resultados generó?</strong> <span id="det-generado"></span></p>
+                <p><strong>¿Qué aprendimos?</strong> <span id="det-aprendido"></span></p>
+              </div>
+
+              <div class="sub-box">
+                <h4>Datos y métricas</h4>
+                <p id="det-metricas-desc"></p>
+                <div class="evidence-tags">
+                  <span class="tag">Dashboard del proyecto</span>
+                  <span class="tag">Gráficos</span>
+                  <span class="tag">Indicadores</span>
+                  <span class="tag">Series de tiempo</span>
+                </div>
+              </div>
+
+              <div class="sub-box">
+                <h4>Trazabilidad</h4>
+                <p id="det-trazabilidad-desc"></p>
+                <div class="actions-row" style="margin-top: 12px;">
+                  <a class="btn btn-primary" id="det-btn-soportes" href="#contacto">Ver soportes</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="tech-note">
+              <strong>Estructura lista para conectar datos:</strong>
+              Tabla/esquema <code>proyectos</code> (<code>id</code>, <code>nombre</code>,
+              <code>descripcion</code>, <code>categoria</code>, <code>estado</code>,
+              <code>fecha_inicio</code>, <code>fecha_fin</code>, <code>objetivo</code>,
+              <code>beneficiarios</code>, <code>evidencias</code>) · Endpoints de referencia:
+              <code id="det-endpoints"></code>.
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contacto y transparencia legal -->
+    <!-- CONTACTO Y TRANSPARENCIA -->
     <section id="contacto">
       <div class="container">
         <div class="card-panel">
           <h2 class="section-title">Contacto y transparencia</h2>
           <p class="section-subtitle">
-            Identificación institucional, canales de veeduría y consulta sobre el tratamiento de datos.
+            Identificación formal de Fundación Data Life y canales de veeduría y consulta.
           </p>
           <div class="legal-grid">
             <div class="legal-box">
@@ -623,5 +844,183 @@
       <span>https://www.datalifefoundation.org</span>
     </div>
   </footer>
+
+  <script>
+    // Base inicial en 0 / "Por definir" para ir cargando tus proyectos, links y vistas de BigQuery
+    const PROYECTOS_DATA = [
+      {
+        id: 1,
+        nombre: "Bienestar Animal Caribe",
+        foto: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80",
+        estado: "Activo",
+        estadoBadge: "🟢 Activo",
+        categoria: "Bienestar Animal",
+        ubicacion: "Por definir",
+        anio: "Por definir",
+        fecha: "Por definir",
+        responsable: "Por definir",
+        problema: "Por definir",
+        objetivo: "Por definir",
+        alcance: "Por definir",
+        resultadosEsperados: "Por definir",
+        beneficiarios: 0,
+        evidencias: 0,
+        actividades: 0,
+        aliados: 0,
+        evidenciasDesc: "Espacio preparado para enlazar fotos, videos, documentos, informes y soportes verificables.",
+        cambio: "Por definir",
+        generado: "Por definir",
+        aprendido: "Por definir",
+        metricasDesc: "Listo para conectar dashboard específico, gráficos, indicadores y series de tiempo (ej. BigQuery / Looker).",
+        trazabilidadDesc: "Cada indicador se vinculará a su soporte documental y registro de ejecución.",
+        urlSoportes: "#contacto"
+      },
+      {
+        id: 2,
+        nombre: "Entorno y Comunidad",
+        foto: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=900&q=80",
+        estado: "Activo",
+        estadoBadge: "🟢 Activo",
+        categoria: "Comunidad",
+        ubicacion: "Por definir",
+        anio: "Por definir",
+        fecha: "Por definir",
+        responsable: "Por definir",
+        problema: "Por definir",
+        objetivo: "Por definir",
+        alcance: "Por definir",
+        resultadosEsperados: "Por definir",
+        beneficiarios: 0,
+        evidencias: 0,
+        actividades: 0,
+        aliados: 0,
+        evidenciasDesc: "Espacio preparado para enlazar fotos, videos, documentos, informes y soportes verificables.",
+        cambio: "Por definir",
+        generado: "Por definir",
+        aprendido: "Por definir",
+        metricasDesc: "Listo para conectar dashboard específico, gráficos, indicadores y series de tiempo (ej. BigQuery / Looker).",
+        trazabilidadDesc: "Cada indicador se vinculará a su soporte documental y registro de ejecución.",
+        urlSoportes: "#contacto"
+      }
+    ];
+
+    const listaEl = document.getElementById("lista-proyectos");
+    const filtroCategoria = document.getElementById("filtro-categoria");
+    const filtroEstado = document.getElementById("filtro-estado");
+    const filtroUbicacion = document.getElementById("filtro-ubicacion");
+    const filtroAnio = document.getElementById("filtro-anio");
+    const quickButtons = document.querySelectorAll("[data-quick-status]");
+    const detallePanel = document.getElementById("detalle-proyecto");
+    const cerrarDetalleBtn = document.getElementById("cerrar-detalle");
+
+    function renderProyectos() {
+      const cat = filtroCategoria.value;
+      const est = filtroEstado.value;
+      const ubi = filtroUbicacion.value;
+      const anio = filtroAnio.value;
+
+      const filtrados = PROYECTOS_DATA.filter((p) => {
+        const okCat = cat === "Todas" || p.categoria === cat;
+        const okEst = est === "Todos" || p.estado === est;
+        const okUbi = ubi === "Todas" || p.ubicacion === ubi;
+        const okAnio = anio === "Todos" || p.anio === anio;
+        return okCat && okEst && okUbi && okAnio;
+      });
+
+      if (!filtrados.length) {
+        listaEl.innerHTML =
+          '<div class="empty-state">No hay proyectos que coincidan con los filtros seleccionados.</div>';
+        return;
+      }
+
+      listaEl.innerHTML = filtrados
+        .map(
+          (p) => `
+          <article class="project-card">
+            <img src="${p.foto}" alt="${p.nombre}" />
+            <div class="project-content">
+              <h3 class="project-title">${p.nombre}</h3>
+              <ul class="project-meta">
+                <li><strong>Estado:</strong> ${p.estadoBadge}</li>
+                <li><strong>Categoría:</strong> ${p.categoria}</li>
+                <li><strong>Beneficiarios:</strong> ${p.beneficiarios}</li>
+                <li><strong>Evidencias:</strong> ${p.evidencias}</li>
+                <li><strong>Fecha:</strong> ${p.fecha}</li>
+              </ul>
+            </div>
+            <div class="project-footer">
+              <button type="button" class="btn btn-primary" onclick="abrirDetalle(${p.id})">Ver detalles</button>
+            </div>
+          </article>
+        `
+        )
+        .join("");
+    }
+
+    window.abrirDetalle = function (id) {
+      const p = PROYECTOS_DATA.find((item) => item.id === id);
+      if (!p) return;
+
+      document.getElementById("det-nombre").textContent = p.nombre;
+      document.getElementById("det-estado").textContent = `Estado: ${p.estadoBadge}`;
+      document.getElementById("det-fecha").textContent = `Fecha: ${p.fecha}`;
+      document.getElementById("det-responsable").textContent = `Responsable: ${p.responsable}`;
+      document.getElementById("det-categoria").textContent = `Categoría: ${p.categoria}`;
+
+      document.getElementById("det-problema").textContent = p.problema;
+      document.getElementById("det-objetivo").textContent = p.objetivo;
+      document.getElementById("det-alcance").textContent = p.alcance;
+      document.getElementById("det-resultados-esperados").textContent = p.resultadosEsperados;
+
+      document.getElementById("det-beneficiarios").textContent = p.beneficiarios;
+      document.getElementById("det-evidencias").textContent = p.evidencias;
+      document.getElementById("det-actividades").textContent = p.actividades;
+      document.getElementById("det-aliados").textContent = p.aliados;
+
+      document.getElementById("det-evidencias-desc").textContent = p.evidenciasDesc;
+      document.getElementById("det-cambio").textContent = p.cambio;
+      document.getElementById("det-generado").textContent = p.generado;
+      document.getElementById("det-aprendido").textContent = p.aprendido;
+      document.getElementById("det-metricas-desc").textContent = p.metricasDesc;
+      document.getElementById("det-trazabilidad-desc").textContent = p.trazabilidadDesc;
+
+      const btnSoportes = document.getElementById("det-btn-soportes");
+      btnSoportes.href = p.urlSoportes || "#contacto";
+
+      document.getElementById("det-endpoints").textContent =
+        `GET /api/proyectos · GET /api/proyectos/${p.id} · GET /api/proyectos/${p.id}/evidencias · GET /api/proyectos/${p.id}/indicadores`;
+
+      detallePanel.hidden = false;
+      detallePanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    cerrarDetalleBtn.addEventListener("click", () => {
+      detallePanel.hidden = true;
+    });
+
+    quickButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const status = btn.getAttribute("data-quick-status");
+        filtroEstado.value = status;
+        quickButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderProyectos();
+      });
+    });
+
+    [filtroCategoria, filtroEstado, filtroUbicacion, filtroAnio].forEach((select) => {
+      select.addEventListener("change", () => {
+        if (select === filtroEstado) {
+          quickButtons.forEach((b) => {
+            const matches = b.getAttribute("data-quick-status") === filtroEstado.value;
+            b.classList.toggle("active", matches);
+          });
+        }
+        renderProyectos();
+      });
+    });
+
+    renderProyectos();
+  </script>
 </body>
 </html>
