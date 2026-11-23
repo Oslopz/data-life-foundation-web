@@ -70,7 +70,7 @@
 
     nav {
       display: flex;
-      gap: 18px;
+      gap: 16px;
       flex-wrap: wrap;
       align-items: center;
     }
@@ -78,7 +78,7 @@
     nav a {
       text-decoration: none;
       color: var(--muted);
-      font-size: 0.94rem;
+      font-size: 0.92rem;
       font-weight: 500;
       white-space: nowrap;
     }
@@ -108,7 +108,7 @@
     .section-subtitle {
       color: var(--muted);
       margin-bottom: 24px;
-      max-width: 72ch;
+      max-width: 74ch;
     }
 
     /* Hero */
@@ -252,6 +252,89 @@
     .step-card p {
       font-size: 0.92rem;
       color: var(--muted);
+    }
+
+    /* Centro de Inteligencia Animal */
+    .cia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .cia-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cia-card.alert-accent {
+      border-top-color: #d97706;
+    }
+
+    .cia-card.crisis-accent {
+      border-top-color: #dc2626;
+    }
+
+    .cia-card.citizen-accent {
+      border-top-color: var(--accent);
+    }
+
+    .cia-badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .cia-val {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .cia-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: var(--primary-dark);
+    }
+
+    .cia-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .cia-observatory-bar {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cia-observatory-bar h3 {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .cia-observatory-bar p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 64ch;
     }
 
     /* Transparencia y Dashboard Público */
@@ -664,7 +747,8 @@
       .project-card,
       .sub-box,
       .step-card,
-      .dash-kpi-card {
+      .dash-kpi-card,
+      .cia-card {
         box-shadow: none;
         break-inside: avoid;
       }
@@ -678,6 +762,7 @@
       <nav>
         <a href="#quienes-somos">Inicio</a>
         <a href="#como-funcionamos">Cómo funcionamos</a>
+        <a href="#inteligencia-animal">Inteligencia Animal</a>
         <a href="#transparencia">Transparencia y Dashboard</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#contacto">Contacto</a>
@@ -686,7 +771,7 @@
   </header>
 
   <main id="inicio">
-    <!-- PÁGINA 1: INICIO (Generar confianza) -->
+    <!-- INICIO (Generar confianza) -->
     <section class="hero" id="quienes-somos">
       <div class="container">
         <div class="card-panel">
@@ -724,6 +809,7 @@
           <div class="actions-row">
             <a class="btn btn-primary" href="#proyectos">Ver Proyectos</a>
             <a class="btn btn-secondary" href="#transparencia">Ver Transparencia</a>
+            <a class="btn btn-secondary" href="#inteligencia-animal">Centro de Inteligencia Animal</a>
           </div>
         </div>
       </div>
@@ -791,7 +877,93 @@
       </div>
     </section>
 
-    <!-- PÁGINAS 2 Y 5 INTEGRADAS: TRANSPARENCIA Y DASHBOARD PÚBLICO -->
+    <!-- CENTRO DE INTELIGENCIA ANIMAL -->
+    <section id="inteligencia-animal">
+      <div class="container">
+        <div class="card-panel">
+          <h2 class="section-title">Centro de Inteligencia Animal</h2>
+          <p class="section-subtitle">
+            Sistema de monitoreo, participación comunitaria y análisis de datos sobre bienestar
+            animal en territorio, estructurado para registrar hallazgos con evidencia verificable.
+          </p>
+
+          <div class="cia-grid">
+            <article class="cia-card alert-accent">
+              <div>
+                <span class="cia-badge">Módulo 1 · Alertas</span>
+                <div class="cia-val">0</div>
+                <h3>Alertas</h3>
+              </div>
+              <p>
+                Avisos tempranos sobre casos prioritarios de abandono, vulnerabilidad o riesgo en
+                vía pública.
+              </p>
+            </article>
+
+            <article class="cia-card">
+              <div>
+                <span class="cia-badge">Módulo 2 · Tendencias</span>
+                <div class="cia-val">0</div>
+                <h3>Tendencias</h3>
+              </div>
+              <p>
+                Comportamientos recurrentes, zonas de mayor incidencia y evolución temporal de
+                reportes.
+              </p>
+            </article>
+
+            <article class="cia-card crisis-accent">
+              <div>
+                <span class="cia-badge">Módulo 3 · Crisis</span>
+                <div class="cia-val">0</div>
+                <h3>Crisis</h3>
+              </div>
+              <p>
+                Situaciones críticas o de emergencia colectiva que demandan articulación y
+                seguimiento urgente.
+              </p>
+            </article>
+
+            <article class="cia-card citizen-accent">
+              <div>
+                <span class="cia-badge">Módulo 4 · Observatorio</span>
+                <div class="cia-val">0</div>
+                <h3>Reportes Ciudadanos</h3>
+              </div>
+              <p>
+                Registros enviados por la comunidad con ubicación, fecha y respaldo visual para
+                validación.
+              </p>
+            </article>
+
+            <article class="cia-card">
+              <div>
+                <span class="cia-badge">Módulo 5 · Analítica</span>
+                <div class="cia-val">0</div>
+                <h3>Analítica</h3>
+              </div>
+              <p>
+                Indicadores consolidados, cruces territoriales y tableros abiertos para la toma de
+                decisiones.
+              </p>
+            </article>
+          </div>
+
+          <div class="cia-observatory-bar">
+            <div>
+              <h3>Observatorio Ciudadano de Bienestar Animal</h3>
+              <p>
+                Canal abierto para recibir reportes comunitarios verificables y alimentar la base
+                analítica de Fundación Data Life.
+              </p>
+            </div>
+            <a class="btn btn-primary" href="#contacto">Enviar reporte ciudadano</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPARENCIA Y DASHBOARD PÚBLICO -->
     <section id="transparencia">
       <div class="container">
         <div class="card-panel">
@@ -886,7 +1058,7 @@
       </div>
     </section>
 
-    <!-- PÁGINAS 3 Y 4: CATÁLOGO Y DETALLE DE PROYECTO -->
+    <!-- CATÁLOGO Y DETALLE DE PROYECTO -->
     <section id="proyectos">
       <div class="container">
         <div class="card-panel">
