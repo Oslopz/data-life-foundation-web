@@ -201,9 +201,10 @@
       color: var(--muted);
     }
 
+    /* Ciclo de trabajo con visuales */
     .steps-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 18px;
     }
 
@@ -211,21 +212,36 @@
       background: var(--surface-alt);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-thumb {
+      width: 100%;
+      height: 135px;
+      object-fit: cover;
+      display: block;
+      background-color: #e2e8f0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step-body {
+      padding: 18px;
     }
 
     .step-num {
       display: inline-flex;
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       align-items: center;
       justify-content: center;
       border-radius: 999px;
       background: var(--primary);
       color: #ffffff;
       font-weight: 700;
-      font-size: 0.9rem;
-      margin-bottom: 12px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
     }
 
     .step-card h3 {
@@ -236,6 +252,107 @@
     .step-card p {
       font-size: 0.92rem;
       color: var(--muted);
+    }
+
+    /* Transparencia y Dashboard Público */
+    .dashboard-kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .dash-kpi-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .dash-kpi-val {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .dash-kpi-label {
+      font-weight: 700;
+      font-size: 0.94rem;
+      margin-bottom: 3px;
+    }
+
+    .dash-kpi-sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .transparency-pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .transp-item {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .transp-item h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .transp-item p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .public-dashboard-box {
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      padding: 30px 22px;
+      text-align: center;
+      background: var(--surface-alt);
+    }
+
+    .bars-preview {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 10px;
+      height: 86px;
+      margin-bottom: 14px;
+    }
+
+    .bars-preview span {
+      width: 28px;
+      border-radius: 7px 7px 0 0;
+      background: linear-gradient(180deg, var(--accent), var(--primary-dark));
+    }
+
+    .bars-preview span:nth-child(1) { height: 48%; }
+    .bars-preview span:nth-child(2) { height: 76%; }
+    .bars-preview span:nth-child(3) { height: 60%; }
+    .bars-preview span:nth-child(4) { height: 92%; }
+    .bars-preview span:nth-child(5) { height: 68%; }
+
+    .public-dashboard-box h3 {
+      font-size: 1.08rem;
+      margin-bottom: 6px;
+    }
+
+    .public-dashboard-box p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 62ch;
+      margin: 0 auto;
     }
 
     /* Controles de Proyectos */
@@ -370,11 +487,31 @@
       margin-bottom: 22px;
     }
 
+    /* Separación reforzada: Galería/Evidencias, Documentos/Soportes e Indicadores asociados */
+    .evidence-split-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
     .sub-box {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 18px;
+    }
+
+    .sub-box.accent-teal {
+      border-top: 4px solid var(--primary);
+    }
+
+    .sub-box.accent-blue {
+      border-top: 4px solid var(--accent);
+    }
+
+    .sub-box.accent-slate {
+      border-top: 4px solid #334155;
     }
 
     .sub-box h4 {
@@ -455,6 +592,15 @@
       font-weight: 600;
     }
 
+    .doc-list {
+      list-style: none;
+      margin-top: 10px;
+      display: grid;
+      gap: 6px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
     /* Contacto y transparencia */
     .legal-grid {
       display: grid;
@@ -516,7 +662,9 @@
       .card-panel,
       .detail-panel,
       .project-card,
-      .sub-box {
+      .sub-box,
+      .step-card,
+      .dash-kpi-card {
         box-shadow: none;
         break-inside: avoid;
       }
@@ -528,9 +676,9 @@
     <div class="container nav-wrap">
       <a class="brand" href="#inicio">FUNDACIÓN DATA LIFE</a>
       <nav>
-        <a href="#quienes-somos">¿Quiénes somos?</a>
-        <a href="#como-funcionamos">¿Cómo funcionamos?</a>
-        <a href="#por-que-confiar">¿Por qué confiar?</a>
+        <a href="#quienes-somos">Inicio</a>
+        <a href="#como-funcionamos">Cómo funcionamos</a>
+        <a href="#transparencia">Transparencia y Dashboard</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#contacto">Contacto</a>
       </nav>
@@ -538,7 +686,7 @@
   </header>
 
   <main id="inicio">
-    <!-- HOME: ¿Quiénes somos? / ¿Cómo funcionamos? / ¿Por qué confiar? -->
+    <!-- PÁGINA 1: INICIO (Generar confianza) -->
     <section class="hero" id="quienes-somos">
       <div class="container">
         <div class="card-panel">
@@ -574,13 +722,14 @@
           </div>
 
           <div class="actions-row">
-            <a class="btn btn-primary" href="#proyectos">Explorar proyectos</a>
-            <a class="btn btn-secondary" href="#como-funcionamos">Ver ciclo de trabajo</a>
+            <a class="btn btn-primary" href="#proyectos">Ver Proyectos</a>
+            <a class="btn btn-secondary" href="#transparencia">Ver Transparencia</a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CICLO DE TRABAJO CON IMÁGENES DE REFERENCIA -->
     <section id="como-funcionamos">
       <div class="container">
         <div class="card-panel">
@@ -590,31 +739,154 @@
           </p>
           <div class="steps-grid">
             <article class="step-card">
-              <div class="step-num">1</div>
-              <h3>Identificamos necesidades</h3>
-              <p>Detectamos brechas en bienestar animal, comunidades y entorno.</p>
+              <img
+                class="step-thumb"
+                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80"
+                alt="Identificamos necesidades en campo"
+              />
+              <div class="step-body">
+                <div class="step-num">1</div>
+                <h3>Identificamos necesidades</h3>
+                <p>Detectamos brechas en bienestar animal, comunidades y entorno.</p>
+              </div>
             </article>
             <article class="step-card">
-              <div class="step-num">2</div>
-              <h3>Ejecutamos proyectos</h3>
-              <p>Intervenimos en territorio con acciones planificadas y medibles.</p>
+              <img
+                class="step-thumb"
+                src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=700&q=80"
+                alt="Ejecutamos proyectos en territorio"
+              />
+              <div class="step-body">
+                <div class="step-num">2</div>
+                <h3>Ejecutamos proyectos</h3>
+                <p>Intervenimos en territorio con acciones planificadas y medibles.</p>
+              </div>
             </article>
             <article class="step-card">
-              <div class="step-num">3</div>
-              <h3>Recolectamos evidencias</h3>
-              <p>Registramos soportes, actas, fotos y datos verificables en campo.</p>
+              <img
+                class="step-thumb"
+                src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=700&q=80"
+                alt="Recolectamos evidencias y registros"
+              />
+              <div class="step-body">
+                <div class="step-num">3</div>
+                <h3>Recolectamos evidencias</h3>
+                <p>Registramos soportes, actas, fotos y datos verificables en campo.</p>
+              </div>
             </article>
             <article class="step-card">
-              <div class="step-num">4</div>
-              <h3>Analizamos impacto y publicamos</h3>
-              <p>Evaluamos métricas y abrimos los hallazgos a consulta pública.</p>
+              <img
+                class="step-thumb"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80"
+                alt="Analizamos impacto y publicamos resultados"
+              />
+              <div class="step-body">
+                <div class="step-num">4</div>
+                <h3>Analizamos impacto y publicamos</h3>
+                <p>Evaluamos métricas y abrimos los hallazgos a consulta pública.</p>
+              </div>
             </article>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CATÁLOGO DE PROYECTOS: ¿Qué están haciendo exactamente? -->
+    <!-- PÁGINAS 2 Y 5 INTEGRADAS: TRANSPARENCIA Y DASHBOARD PÚBLICO -->
+    <section id="transparencia">
+      <div class="container">
+        <div class="card-panel">
+          <h2 class="section-title">Transparencia y Dashboard Público</h2>
+          <p class="section-subtitle">
+            Visualización abierta de indicadores consolidados, metodología de seguimiento, reportes
+            y soportes verificables de Fundación Data Life.
+          </p>
+
+          <!-- Indicadores globales en 0 -->
+          <div class="dashboard-kpis">
+            <div class="dash-kpi-card">
+              <div class="dash-kpi-val">0</div>
+              <div class="dash-kpi-label">Proyectos activos</div>
+              <div class="dash-kpi-sub">En ejecución verificada</div>
+            </div>
+            <div class="dash-kpi-card">
+              <div class="dash-kpi-val">0</div>
+              <div class="dash-kpi-label">Beneficiarios</div>
+              <div class="dash-kpi-sub">Personas y animales atendidos</div>
+            </div>
+            <div class="dash-kpi-card">
+              <div class="dash-kpi-val">0</div>
+              <div class="dash-kpi-label">Evidencias</div>
+              <div class="dash-kpi-sub">Registros y soportes publicados</div>
+            </div>
+            <div class="dash-kpi-card">
+              <div class="dash-kpi-val">0</div>
+              <div class="dash-kpi-label">Iniciativas</div>
+              <div class="dash-kpi-sub">Programas formulados y estacionales</div>
+            </div>
+            <div class="dash-kpi-card">
+              <div class="dash-kpi-val">0</div>
+              <div class="dash-kpi-label">Impacto ambiental</div>
+              <div class="dash-kpi-sub">Acciones de conservación y entorno</div>
+            </div>
+            <div class="dash-kpi-card">
+              <div class="dash-kpi-val">0</div>
+              <div class="dash-kpi-label">Impacto social</div>
+              <div class="dash-kpi-sub">Intervenciones comunitarias</div>
+            </div>
+          </div>
+
+          <!-- Pilares de Transparencia -->
+          <div class="transparency-pillars">
+            <article class="transp-item">
+              <h3>Indicadores</h3>
+              <p>
+                Métricas estandarizadas por proyecto y línea de acción, actualizadas conforme se
+                validan los registros en campo.
+              </p>
+            </article>
+            <article class="transp-item">
+              <h3>Reportes</h3>
+              <p>
+                Informes periódicos de avance, ejecución y cierre disponibles para consulta abierta
+                de aliados y ciudadanía.
+              </p>
+            </article>
+            <article class="transp-item">
+              <h3>Evidencias</h3>
+              <p>
+                Soportes documentales, actas y registros fotográficos vinculados directamente a cada
+                resultado reportado.
+              </p>
+            </article>
+            <article class="transp-item">
+              <h3>Metodología</h3>
+              <p>
+                Trazabilidad de extremo a extremo desde el diagnóstico inicial hasta la validación
+                final de impacto, protegiendo datos personales.
+              </p>
+            </article>
+          </div>
+
+          <!-- Contenedor del Dashboard Público -->
+          <div class="public-dashboard-box">
+            <div class="bars-preview" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <h3>Dashboard público de seguimiento</h3>
+            <p>
+              Panel consolidado para explorar series de tiempo, distribución por categoría y estado
+              de ejecución una vez se publiquen los primeros registros operativos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINAS 3 Y 4: CATÁLOGO Y DETALLE DE PROYECTO -->
     <section id="proyectos">
       <div class="container">
         <div class="card-panel">
@@ -712,27 +984,7 @@
               </div>
             </div>
 
-            <h4 style="margin-bottom: 10px;">Indicadores</h4>
-            <div class="kpi-row">
-              <div class="kpi-box">
-                <div class="kpi-num" id="det-beneficiarios">0</div>
-                <div class="kpi-txt">Beneficiarios</div>
-              </div>
-              <div class="kpi-box">
-                <div class="kpi-num" id="det-evidencias">0</div>
-                <div class="kpi-txt">Evidencias</div>
-              </div>
-              <div class="kpi-box">
-                <div class="kpi-num" id="det-actividades">0</div>
-                <div class="kpi-txt">Actividades</div>
-              </div>
-              <div class="kpi-box">
-                <div class="kpi-num" id="det-aliados">0</div>
-                <div class="kpi-txt">Aliados</div>
-              </div>
-            </div>
-
-            <h4 style="margin-bottom: 10px;">Línea de tiempo</h4>
+            <h4 style="margin-bottom: 10px;">Progreso y Línea de tiempo</h4>
             <div class="timeline-flow">
               <span class="timeline-step">Inicio proyecto</span>
               <span class="timeline-arrow">↓</span>
@@ -745,56 +997,72 @@
               <span class="timeline-step">Cierre</span>
             </div>
 
-            <div class="detail-grid-2">
-              <div class="sub-box">
-                <h4>Evidencias</h4>
+            <!-- BLOQUES SEPARADOS VISUALMENTE: Galería/Evidencias | Documentos/Soportes | Indicadores asociados -->
+            <div class="evidence-split-grid">
+              <div class="sub-box accent-teal">
+                <h4>1. Galería y Evidencias</h4>
                 <p id="det-evidencias-desc"></p>
                 <div class="evidence-tags">
-                  <span class="tag">Fotos</span>
+                  <span class="tag">Fotos de campo</span>
                   <span class="tag">Videos</span>
-                  <span class="tag">Documentos</span>
-                  <span class="tag">Informes</span>
-                  <span class="tag">Soportes</span>
+                  <span class="tag">Registros visuales</span>
                 </div>
               </div>
 
-              <div class="sub-box">
-                <h4>Impacto</h4>
-                <p id="det-impacto-msg"></p>
-                <p id="det-cambio-wrap"><strong>¿Qué cambió?</strong> <span id="det-cambio"></span></p>
-                <p id="det-generado-wrap"><strong>¿Qué resultados generó?</strong> <span id="det-generado"></span></p>
-                <p id="det-aprendido-wrap"><strong>¿Qué aprendimos?</strong> <span id="det-aprendido"></span></p>
-              </div>
-
-              <div class="sub-box">
-                <h4>Datos y métricas</h4>
-                <p id="det-metricas-desc"></p>
-                <div class="evidence-tags">
-                  <span class="tag">Dashboard del proyecto</span>
-                  <span class="tag">Gráficos</span>
-                  <span class="tag">Indicadores</span>
-                  <span class="tag">Series de tiempo</span>
-                </div>
-              </div>
-
-              <div class="sub-box">
-                <h4>Trazabilidad</h4>
+              <div class="sub-box accent-blue">
+                <h4>2. Documentos y Soportes</h4>
                 <p id="det-trazabilidad-desc"></p>
+                <ul class="doc-list">
+                  <li>• Actas de entrega y seguimiento</li>
+                  <li>• Informes técnicos y reportes</li>
+                  <li>• Soportes documentales verificables</li>
+                </ul>
                 <div class="actions-row" style="margin-top: 12px;">
                   <a class="btn btn-primary" id="det-btn-soportes" href="#contacto">Ver soportes</a>
                 </div>
               </div>
+
+              <div class="sub-box accent-slate">
+                <h4>3. Indicadores Asociados</h4>
+                <p id="det-metricas-desc"></p>
+                <div class="kpi-row" style="margin-top: 12px; margin-bottom: 0;">
+                  <div class="kpi-box">
+                    <div class="kpi-num" id="det-beneficiarios">0</div>
+                    <div class="kpi-txt">Beneficiarios</div>
+                  </div>
+                  <div class="kpi-box">
+                    <div class="kpi-num" id="det-evidencias">0</div>
+                    <div class="kpi-txt">Evidencias</div>
+                  </div>
+                  <div class="kpi-box">
+                    <div class="kpi-num" id="det-actividades">0</div>
+                    <div class="kpi-txt">Actividades</div>
+                  </div>
+                  <div class="kpi-box">
+                    <div class="kpi-num" id="det-aliados">0</div>
+                    <div class="kpi-txt">Aliados</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sub-box">
+              <h4>Impacto y Aprendizajes</h4>
+              <p id="det-impacto-msg"></p>
+              <p id="det-cambio-wrap"><strong>¿Qué cambió?</strong> <span id="det-cambio"></span></p>
+              <p id="det-generado-wrap"><strong>¿Qué resultados generó?</strong> <span id="det-generado"></span></p>
+              <p id="det-aprendido-wrap"><strong>¿Qué aprendimos?</strong> <span id="det-aprendido"></span></p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACTO Y TRANSPARENCIA -->
+    <!-- CONTACTO Y TRANSPARENCIA LEGAL -->
     <section id="contacto">
       <div class="container">
         <div class="card-panel">
-          <h2 class="section-title">Contacto y transparencia</h2>
+          <h2 class="section-title">Contacto y respaldo institucional</h2>
           <p class="section-subtitle">
             Identificación formal de Fundación Data Life y canales de veeduría y consulta.
           </p>
@@ -808,7 +1076,7 @@
               </p>
             </div>
             <div class="legal-box">
-              <h3>Transparencia y datos</h3>
+              <h3>Protección de datos y trazabilidad</h3>
               <p>
                 Los indicadores y soportes publicados priorizan la trazabilidad y el anonimato de
                 datos personales conforme a la normativa aplicable de protección de datos.
@@ -848,12 +1116,12 @@
         evidencias: 0,
         actividades: 0,
         aliados: 0,
-        evidenciasDesc: "Registros fotográficos, actas, informes y documentos de respaldo asociados al proyecto.",
+        evidenciasDesc: "Registro fotográfico y audiovisual de jornadas y atenciones realizadas.",
         cambio: "Por definir",
         generado: "Por definir",
         aprendido: "Por definir",
-        metricasDesc: "Indicadores, gráficos y evolución del proyecto publicados conforme se validan los reportes.",
-        trazabilidadDesc: "Cada cifra publicada puede rastrearse hasta su soporte documental y registro de ejecución.",
+        metricasDesc: "Métricas operativas y seguimiento cuantitativo asociados a esta iniciativa.",
+        trazabilidadDesc: "Documentación formal y soportes verificables que respaldan cada indicador.",
         urlSoportes: "#contacto"
       },
       {
@@ -875,12 +1143,12 @@
         evidencias: 0,
         actividades: 0,
         aliados: 0,
-        evidenciasDesc: "Registros fotográficos, actas, informes y documentos de respaldo asociados al proyecto.",
+        evidenciasDesc: "Registro fotográfico y audiovisual de intervenciones comunitarias y ambientales.",
         cambio: "Por definir",
         generado: "Por definir",
         aprendido: "Por definir",
-        metricasDesc: "Indicadores, gráficos y evolución del proyecto publicados conforme se validan los reportes.",
-        trazabilidadDesc: "Cada cifra publicada puede rastrearse hasta su soporte documental y registro de ejecución.",
+        metricasDesc: "Métricas operativas y seguimiento cuantitativo asociados a esta iniciativa.",
+        trazabilidadDesc: "Documentación formal y soportes verificables que respaldan cada indicador.",
         urlSoportes: "#contacto"
       },
       {
@@ -902,12 +1170,12 @@
         evidencias: 0,
         actividades: 0,
         aliados: 0,
-        evidenciasDesc: "Registros fotográficos, actas, informes y documentos de respaldo asociados a la jornada estacional.",
+        evidenciasDesc: "Registro fotográfico y audiovisual de entregas y actividades de la jornada estacional.",
         cambio: "Por definir",
         generado: "Por definir",
         aprendido: "Por definir",
-        metricasDesc: "Indicadores, gráficos y evolución del proyecto publicados conforme se validan los reportes.",
-        trazabilidadDesc: "Cada cifra publicada puede rastrearse hasta su soporte documental y registro de ejecución.",
+        metricasDesc: "Métricas operativas y seguimiento cuantitativo asociados a esta iniciativa.",
+        trazabilidadDesc: "Documentación formal y soportes verificables que respaldan cada indicador.",
         urlSoportes: "#contacto"
       }
     ];
