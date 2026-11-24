@@ -187,6 +187,11 @@
       border-radius: 6px;
     }
 
+    .badge-stock {
+      background: #dcfce7;
+      color: #166534;
+    }
+
     .product-body {
       padding: 18px;
       display: flex;
@@ -205,6 +210,17 @@
       font-size: 0.88rem;
       color: var(--muted);
       flex-grow: 1;
+    }
+
+    .variant-select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.86rem;
+      background: #f8fafc;
+      color: var(--primary);
+      font-weight: 600;
     }
 
     .product-price {
@@ -238,7 +254,6 @@
       background: var(--accent-hover);
     }
 
-    /* Carrito lateral */
     .cart-panel {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -404,7 +419,29 @@
 
   <main class="main-layout">
     <section class="catalog-grid" id="catalogo">
-      <!-- Producto 1 -->
+      <!-- Producto Estrella en Stock Real -->
+      <article class="product-card">
+        <div class="product-img">
+          🧄
+          <span class="product-badge badge-stock">¡Solo 8 disponibles!</span>
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">Mini Picador Eléctrico de Alimentos y Ajo</h3>
+          <p class="product-desc">
+            Pica ajo, cebolla, verduras y condimentos en segundos con un solo toque. Cuchillas de acero inoxidable y fácil lavado.
+          </p>
+          <select id="color-picador" class="variant-select" aria-label="Color del picador">
+            <option value="Blanco">Color: Blanco</option>
+            <option value="Verde Menta">Color: Verde Menta</option>
+            <option value="Rosa Pastel">Color: Rosa Pastel</option>
+            <option value="Surtido / Consultar">Color: Surtido (consultar disponible)</option>
+          </select>
+          <div class="product-price">$32.000 <span>$45.000</span></div>
+          <button class="btn-add" onclick="addPicador()">+ Agregar al pedido</button>
+        </div>
+      </article>
+
+      <!-- Producto 2 -->
       <article class="product-card">
         <div class="product-img">
           🔌
@@ -420,7 +457,7 @@
         </div>
       </article>
 
-      <!-- Producto 2 -->
+      <!-- Producto 3 -->
       <article class="product-card">
         <div class="product-img">
           🚗
@@ -436,7 +473,7 @@
         </div>
       </article>
 
-      <!-- Producto 3 -->
+      <!-- Producto 4 -->
       <article class="product-card">
         <div class="product-img">
           ✨
@@ -449,22 +486,6 @@
           </p>
           <div class="product-price">$38.000 <span>$52.000</span></div>
           <button class="btn-add" onclick="addToCart('Polvo Blanqueador Dental', 38000)">+ Agregar al pedido</button>
-        </div>
-      </article>
-
-      <!-- Producto 4 -->
-      <article class="product-card">
-        <div class="product-img">
-          💡
-          <span class="product-badge">Nuevo</span>
-        </div>
-        <div class="product-body">
-          <h3 class="product-title">Luz LED Sensor de Movimiento Recargable</h3>
-          <p class="product-desc">
-            Instalación magnética sin cables para clósets, escaleras o cocina. Se enciende sola al detectar paso.
-          </p>
-          <div class="product-price">$42.900 <span>$58.000</span></div>
-          <button class="btn-add" onclick="addToCart('Luz LED Sensor Movimiento', 42900)">+ Agregar al pedido</button>
         </div>
       </article>
     </section>
@@ -496,6 +517,11 @@
 
     function formatCOP(value) {
       return '$' + value.toLocaleString('es-CO');
+    }
+
+    function addPicador() {
+      const color = document.getElementById('color-picador').value;
+      addToCart(`Mini Picador Eléctrico (${color})`, 32000);
     }
 
     function addToCart(name, price) {
