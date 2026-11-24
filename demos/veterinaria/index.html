@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campañas Veterinarias y Castración Gratuita | Fundación Data Life</title>
+  <style>
+    :root {
+      --bg-hero: #0b2545;
+      --accent: #0d9488;
+      --accent-hover: #0f766e;
+      --text-main: #ffffff;
+      --text-soft: #dbeafe;
+      --badge-bg: rgba(13, 148, 136, 0.2);
+      --badge-border: rgba(94, 234, 212, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .hero-vet {
+      background: linear-gradient(135deg, var(--bg-hero) 0%, #134074 100%);
+      color: var(--text-main);
+      padding: 64px 20px;
+    }
+
+    .hero-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      color: #99f6e4;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero-vet h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero-vet p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--text-soft);
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: background 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .hero-card h2 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: #99f6e4;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #f1f5f9;
+    }
+
+    @media (max-width: 820px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        padding: 12px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-vet">
+    <div class="hero-container">
+      <div>
+        <span class="hero-badge">Fundación Data Life · Centro Veterinario y Campañas</span>
+        <h1>Castraciones y atención veterinaria gratuita con impacto transparente</h1>
+        <p>
+          Centralizamos nuestras jornadas de esterilización 100% gratuitas, orientación en bienestar
+          animal y trazabilidad pública para que más animales accedan a salud preventiva y control
+          responsable.
+        </p>
+        <div class="hero-actions">
+          <a href="#postular-animal" class="btn-primary">Solicitar cupo o campaña</a>
+          <a href="#transparencia" class="btn-secondary">Ver transparencia y métricas</a>
+        </div>
+        <p class="hero-note">
+          Criterios claros de elegibilidad, bienestar previo/posterior y registro transparente de fondos.
+        </p>
+      </div>
+
+      <aside class="hero-card">
+        <h2>¿Qué centraliza este espacio?</h2>
+        <ul>
+          <li>✓ Convocatorias de castración 100% gratuitas por jornada</li>
+          <li>✓ Información práctica de preparación y cuidado postoperatorio</li>
+          <li>✓ Canal directo de reportes y aliados veterinarios</li>
+          <li>✓ Enlace a trazabilidad y métricas de impacto</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+</body>
+</html>
