@@ -1,1 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoltPunto | Estaciones de Carga Eléctrica</title>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --whatsapp: #16a34a;
+      --whatsapp-hover: #15803d;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --soft: #eff6ff;
+      --soft-border: #bfdbfe;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .demo-banner {
+      background: #fef3c7;
+      color: #92400e;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-bottom: 1px solid #fde68a;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .nav-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .btn-top {
+      background: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 9px 15px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 46px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.45rem);
+      max-width: 780px;
+      margin: 0 auto 12px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: #dbeafe;
+      font-size: 1rem;
+    }
+
+    .main-layout {
+      max-width: 1120px;
+      margin: 34px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 370px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .info-col {
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    }
+
+    .card h2 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .card ul {
+      padding-left: 18px;
+      display: grid;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .quote-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      position: sticky;
+      top: 80px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    }
+
+    .quote-panel h2 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+      margin-top: 12px;
+    }
+
+    .field-label:first-of-type {
+      margin-top: 0;
+    }
+
+    select,
+    input[type="number"] {
+      width: 100%;
+      padding: 9px 11px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      background: #f8fafc;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .estimate-box {
+      background: var(--soft);
+      border: 1px solid var(--soft-border);
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 16px;
+    }
+
+    .estimate-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+      color: #1e40af;
+    }
+
+    .estimate-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      padding-top: 8px;
+      border-top: 1px solid var(--soft-border);
+      margin-top: 6px;
+    }
+
+    .btn-whatsapp {
+      width: 100%;
+      margin-top: 14px;
+      background: var(--whatsapp);
+      color: #ffffff;
+      border: none;
+      padding: 13px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .btn-whatsapp:hover {
+      background: var(--whatsapp-hover);
+    }
+
+    footer {
+      background: var(--primary);
+      color: #94a3b8;
+      text-align: center;
+      padding: 24px 20px;
+      margin-top: 48px;
+      font-size: 0.86rem;
+    }
+
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    @media (max-width: 880px) {
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .quote-panel {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">
+    Oscar L. · Demo de Alto Ticket: Estaciones de Carga Eléctrica
+  </div>
+
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">Volt<span>Punto</span></a>
+      <a href="#cotizador" class="btn-top">Solicitar cotización</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Puntos y estaciones de carga eléctrica adaptados a tu operación o parqueadero</h1>
+    <p>
+      Configura cargadores según potencia, número de puntos y disponibilidad eléctrica del lugar para solicitar una propuesta clara.
+    </p>
+  </section>
+
+  <main class="main-layout">
+    <section class="info-col">
+      <article class="card">
+        <h2>Factores clave en carga eléctrica</h2>
+        <p>
+          Implementar carga eléctrica exige revisar más que el cargador en sí:
+        </p>
+        <ul>
+          <li><strong>Respaldo eléctrico del tablero:</strong> capacidad disponible y protecciones adecuadas.</li>
+          <li><strong>Potencia de carga:</strong> carga AC en pared para estacionamiento prolongado o mayor potencia para rotación rápida.</li>
+          <li><strong>Distancia de tendido y canalización:</strong> recorrido desde el tablero hasta cada plaza de carga.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Casos habituales</h2>
+        <ul>
+          <li><strong>Parqueaderos y conjuntos:</strong> puntos asignados o compartidos para residentes y visitantes.</li>
+          <li><strong>Comercios y oficinas:</strong> valor agregado para clientes o flotillas ligeras.</li>
+          <li><strong>Proyectos escalables:</strong> preparar acometida base para sumar puntos a futuro.</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="quote-panel" id="cotizador">
+      <h2>Configurador de Estación</h2>
+
+      <label for="escenario-carga" class="field-label">Escenario de instalación</label>
+      <select id="escenario-carga" onchange="calculateCharger()">
+        <option value="Parqueadero / Conjunto">Parqueadero / Conjunto</option>
+        <option value="Comercio / Atención al público">Comercio / Atención al público</option>
+        <option value="Flota o uso privado">Flota o uso privado</option>
+      </select>
+
+      <label for="puntos-carga" class="field-label">Cantidad de puntos de carga</label>
+      <input type="number" id="puntos-carga" value="2" min="1" max="50" step="1" oninput="calculateCharger()" />
+
+      <label for="potencia-carga" class="field-label">Nivel de cargador</label>
+      <select id="potencia-carga" onchange="calculateCharger()">
+        <option value="Cargador AC 7.4 kW (Residencial / Estacionamiento)|4800000">Cargador AC 7.4 kW (Residencial / Estacionamiento)</option>
+        <option value="Cargador AC 22 kW (Comercial / Rotación)|7900000">Cargador AC 22 kW (Comercial / Rotación)</option>
+      </select>
+
+      <div class="estimate-box">
+        <div class="estimate-row">
+          <span>Puntos configurados:</span>
+          <strong id="charger-units">2 puntos</strong>
+        </div>
+        <div class="estimate-row">
+          <span>Adecuación eléctrica estimada:</span>
+          <strong id="charger-prep">Revisión de tablero + cableado</strong>
+        </div>
+        <div class="estimate-total">
+          <span>Referencia estimada:</span>
+          <span id="charger-total">$9.600.000</span>
+        </div>
+      </div>
+
+      <button class="btn-whatsapp" onclick="sendChargerWhatsApp()">
+        Pedir cotización por WhatsApp →
+      </button>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Oscar L. · Demo Alto Ticket Carga Eléctrica · <a href="mailto:Easywebnnow@gmail.com">Easywebnnow@gmail.com</a></p>
+    <p style="margin-top: 8px;">
+      <a href="../solar/index.html">Ver Demo Solar</a> · <a href="../digitales/index.html">Ver Demo Bienes Digitales</a>
+    </p>
+  </footer>
+
+  <script>
+    function formatCOP(val) {
+      return '$' + Math.round(val).toLocaleString('es-CO');
+    }
+
+    function calculateCharger() {
+      const units = Math.max(1, Number(document.getElementById('puntos-carga').value) || 1);
+      const [levelLabel, unitPriceStr] = document.getElementById('potencia-carga').value.split('|');
+      const unitPrice = Number(unitPriceStr);
+      const total = units * unitPrice;
+
+      document.getElementById('charger-units').textContent = `${units} ${units === 1 ? 'punto' : 'puntos'}`;
+      document.getElementById('charger-prep').textContent = units > 3 ? 'Balanceo de carga + acometida' : 'Tablero + protección dedicada';
+      document.getElementById('charger-total').textContent = formatCOP(total);
+
+      return {
+        scenario: document.getElementById('escenario-carga').value,
+        units,
+        levelLabel,
+        total
+      };
+    }
+
+    function sendChargerWhatsApp() {
+      const data = calculateCharger();
+      const message =
+        `Hola, quiero solicitar una cotización para estación de carga eléctrica:\n\n` +
+        `• Escenario: ${data.scenario}\n` +
+        `• Puntos solicitados: ${data.units}\n` +
+        `• Tipo de cargador: ${data.levelLabel}\n` +
+        `• Referencia estimada: ~${formatCOP(data.total)}\n\n` +
+        `¿Qué datos técnicos necesitamos revisar para la visita o propuesta?`;
+
+      const phone = '573000000000';
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    calculateCharger();
+  </script>
+</body>
+</html>
