@@ -18,7 +18,7 @@
       --radius: 14px;
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -188,6 +188,10 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
     }
 
     .pillar-card h3 {
@@ -614,8 +618,8 @@
 
     .kpi-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
       margin-bottom: 22px;
     }
 
@@ -623,17 +627,17 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 14px;
+      padding: 12px;
     }
 
     .kpi-num {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 800;
       color: var(--primary-dark);
     }
 
     .kpi-txt {
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       color: var(--muted);
     }
 
@@ -765,6 +769,7 @@
         <a href="#inteligencia-animal">Inteligencia Animal</a>
         <a href="#transparencia">Transparencia y Dashboard</a>
         <a href="#proyectos">Proyectos</a>
+        <a href="#muestrario-demos">Demos</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -784,25 +789,31 @@
 
           <div class="pillars-grid" id="por-que-confiar">
             <article class="pillar-card">
-              <h3>¿Quiénes somos?</h3>
-              <p>
-                Organización enfocada en medir y documentar acciones sociales, ambientales y de
-                bienestar animal con rigor metodológico.
-              </p>
+              <div>
+                <h3>¿Quiénes somos?</h3>
+                <p>
+                  Organización enfocada en medir y documentar acciones sociales, ambientales y de
+                  bienestar animal con rigor metodológico.
+                </p>
+              </div>
             </article>
             <article class="pillar-card">
-              <h3>¿Cómo funcionamos?</h3>
-              <p>
-                Articulamos diagnóstico territorial, ejecución planificada, recolección de
-                evidencias y publicación abierta de resultados.
-              </p>
+              <div>
+                <h3>¿Cómo funcionamos?</h3>
+                <p>
+                  Articulamos diagnóstico territorial, ejecución planificada, recolección de
+                  evidencias y publicación abierta de resultados.
+                </p>
+              </div>
             </article>
             <article class="pillar-card">
-              <h3>¿Por qué confiar?</h3>
-              <p>
-                Cada indicador busca respaldarse con soportes verificables y trazabilidad documental,
-                sin cifras infladas ni promesas sin respaldo.
-              </p>
+              <div>
+                <h3>¿Por qué confiar?</h3>
+                <p>
+                  Cada indicador busca respaldarse con soportes verificables y trazabilidad documental,
+                  sin cifras infladas ni promesas sin respaldo.
+                </p>
+              </div>
             </article>
           </div>
 
@@ -1185,9 +1196,9 @@
                 <h4>2. Documentos y Soportes</h4>
                 <p id="det-trazabilidad-desc"></p>
                 <ul class="doc-list">
-                  <li>• Actas de entrega y seguimiento</li>
-                  <li>• Informes técnicos y reportes</li>
-                  <li>• Soportes documentales verificables</li>
+                  <li>Actas de entrega y seguimiento</li>
+                  <li>Informes técnicos y reportes</li>
+                  <li>Soportes documentales verificables</li>
                 </ul>
                 <div class="actions-row" style="margin-top: 12px;">
                   <a class="btn btn-primary" id="det-btn-soportes" href="#contacto">Ver soportes</a>
@@ -1225,6 +1236,63 @@
               <p id="det-generado-wrap"><strong>¿Qué resultados generó?</strong> <span id="det-generado"></span></p>
               <p id="det-aprendido-wrap"><strong>¿Qué aprendimos?</strong> <span id="det-aprendido"></span></p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUESTRARIO COMPACTO DE DEMOS -->
+    <section id="muestrario-demos">
+      <div class="container">
+        <div class="card-panel">
+          <h2 class="section-title">Muestrario de Demos Web</h2>
+          <p class="section-subtitle">
+            Prototipos funcionales por nicho desplegados en carpetas independientes para explorar
+            flujos, interacción y navegación antes de definir una arquitectura fija.
+          </p>
+          <div class="pillars-grid" style="margin-bottom: 0;">
+            <article class="pillar-card">
+              <div>
+                <h3>Veterinaria</h3>
+                <p>Atención clínica, servicios y contacto directo.</p>
+              </div>
+              <a class="btn btn-secondary" href="demos/veterinaria/index.html">Abrir demo</a>
+            </article>
+            <article class="pillar-card">
+              <div>
+                <h3>E-commerce General</h3>
+                <p>Catálogo, pedido y vista de envíos y garantía.</p>
+              </div>
+              <a class="btn btn-secondary" href="demos/tienda/index.html">Abrir demo</a>
+            </article>
+            <article class="pillar-card">
+              <div>
+                <h3>Mascotas: Fuentes y Comida</h3>
+                <p>Dúo de fuentes (hogar y parque) y suscripción para gatos.</p>
+              </div>
+              <a class="btn btn-secondary" href="demos/mascotas/index.html">Abrir demo</a>
+            </article>
+            <article class="pillar-card">
+              <div>
+                <h3>Bienes Digitales</h3>
+                <p>Recursos descargables con enfoque comunitario y ESAL aliadas.</p>
+              </div>
+              <a class="btn btn-secondary" href="demos/digitales/index.html">Abrir demo</a>
+            </article>
+            <article class="pillar-card">
+              <div>
+                <h3>Energía Solar</h3>
+                <p>Simulador consultivo de consumo y estimación de alto ticket.</p>
+              </div>
+              <a class="btn btn-secondary" href="demos/solar/index.html">Abrir demo</a>
+            </article>
+            <article class="pillar-card">
+              <div>
+                <h3>Carga Eléctrica</h3>
+                <p>Configurador de puntos de carga y solicitud de cotización.</p>
+              </div>
+              <a class="btn btn-secondary" href="demos/carga-electrica/index.html">Abrir demo</a>
+            </article>
           </div>
         </div>
       </div>
@@ -1496,3 +1564,4 @@
   </script>
 </body>
 </html>
+```[cite: 2, 47, 48, 50]
