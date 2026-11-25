@@ -1,1 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SolarPro | Cotización de Sistemas Fotovoltaicos</title>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #d97706;
+      --accent-hover: #b45309;
+      --whatsapp: #16a34a;
+      --whatsapp-hover: #15803d;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --soft: #fffbeb;
+      --soft-border: #fde68a;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .demo-banner {
+      background: #fef3c7;
+      color: #92400e;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-bottom: 1px solid #fde68a;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .nav-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .btn-top {
+      background: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 9px 15px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #78350f 100%);
+      color: #ffffff;
+      padding: 46px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.45rem);
+      max-width: 780px;
+      margin: 0 auto 12px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: #fef3c7;
+      font-size: 1rem;
+    }
+
+    .main-layout {
+      max-width: 1120px;
+      margin: 34px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 370px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .info-col {
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    }
+
+    .card h2 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .card ul {
+      padding-left: 18px;
+      display: grid;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .quote-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      position: sticky;
+      top: 80px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    }
+
+    .quote-panel h2 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+      margin-top: 12px;
+    }
+
+    .field-label:first-of-type {
+      margin-top: 0;
+    }
+
+    select,
+    input[type="number"] {
+      width: 100%;
+      padding: 9px 11px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      background: #f8fafc;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .estimate-box {
+      background: var(--soft);
+      border: 1px solid var(--soft-border);
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 16px;
+    }
+
+    .estimate-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+      color: #78350f;
+    }
+
+    .estimate-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      padding-top: 8px;
+      border-top: 1px solid var(--soft-border);
+      margin-top: 6px;
+    }
+
+    .btn-whatsapp {
+      width: 100%;
+      margin-top: 14px;
+      background: var(--whatsapp);
+      color: #ffffff;
+      border: none;
+      padding: 13px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .btn-whatsapp:hover {
+      background: var(--whatsapp-hover);
+    }
+
+    footer {
+      background: var(--primary);
+      color: #94a3b8;
+      text-align: center;
+      padding: 24px 20px;
+      margin-top: 48px;
+      font-size: 0.86rem;
+    }
+
+    footer a {
+      color: #fbbf24;
+      text-decoration: none;
+    }
+
+    @media (max-width: 880px) {
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .quote-panel {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">
+    Oscar L. · Demo de Alto Ticket: Energía Solar Fotovoltaica
+  </div>
+
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">Solar<span>Pro</span></a>
+      <a href="#cotizador" class="btn-top">Solicitar cotización</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Sistemas solares dimensionados según tu consumo real y espacio disponible</h1>
+    <p>
+      En proyectos de alto ticket, el visitante necesita claridad técnica, estimación orientativa y diagnóstico previo antes de invertir.
+    </p>
+  </section>
+
+  <main class="main-layout">
+    <section class="info-col">
+      <article class="card">
+        <h2>Cómo se evalúa un proyecto solar</h2>
+        <p>
+          A diferencia de un producto de compra rápida, un sistema fotovoltaico requiere validar condiciones técnicas:
+        </p>
+        <ul>
+          <li><strong>Consumo mensual en kWh:</strong> define el tamaño aproximado del arreglo solar.</li>
+          <li><strong>Área y orientación de cubierta:</strong> determina cuántos paneles caben sin sombras críticas.</li>
+          <li><strong>Tipo de conexión y respaldo:</strong> configuración conectada a red o con respaldo para cortes.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Etapas de acompañamiento</h2>
+        <ul>
+          <li><strong>1. Estimación inicial:</strong> simulación rápida con datos básicos de consumo.</li>
+          <li><strong>2. Revisión técnica:</strong> validación en sitio o con planos/factura eléctrica.</li>
+          <li><strong>3. Propuesta formal:</strong> alcance de equipos, instalación, garantías y cronograma.</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="quote-panel" id="cotizador">
+      <h2>Simulador y Cotización</h2>
+
+      <label for="tipo-inmueble" class="field-label">Tipo de espacio</label>
+      <select id="tipo-inmueble" onchange="calculateSolar()">
+        <option value="Vivienda / Residencia">Vivienda / Residencia</option>
+        <option value="Comercio / Local">Comercio / Local</option>
+        <option value="Multifamiliar / Edificio">Multifamiliar / Edificio</option>
+      </select>
+
+      <label for="consumo-kwh" class="field-label">Consumo mensual estimado (kWh)</label>
+      <input type="number" id="consumo-kwh" value="450" min="100" max="10000" step="50" oninput="calculateSolar()" />
+
+      <label for="sistema-tipo" class="field-label">Enfoque del sistema</label>
+      <select id="sistema-tipo" onchange="calculateSolar()">
+        <option value="Conectado a red (ahorro en factura)|4200000">Conectado a red (ahorro en factura)</option>
+        <option value="Con respaldo / baterías|5200000">Con respaldo / baterías</option>
+      </select>
+
+      <div class="estimate-box">
+        <div class="estimate-row">
+          <span>Paneles estimados (550 W):</span>
+          <strong id="solar-panels">7 paneles</strong>
+        </div>
+        <div class="estimate-row">
+          <span>Potencia orientativa:</span>
+          <strong id="solar-kw">3.85 kWp</strong>
+        </div>
+        <div class="estimate-total">
+          <span>Inversión estimada:</span>
+          <span id="solar-total">$16.170.000</span>
+        </div>
+      </div>
+
+      <button class="btn-whatsapp" onclick="sendSolarWhatsApp()">
+        Pedir diagnóstico por WhatsApp →
+      </button>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Oscar L. · Demo Alto Ticket Solar · <a href="mailto:Easywebnnow@gmail.com">Easywebnnow@gmail.com</a></p>
+    <p style="margin-top: 8px;">
+      <a href="../carga-electrica/index.html">Ver Demo Carga Eléctrica</a> · <a href="../tienda/index.html">Ver Demo Tienda</a>
+    </p>
+  </footer>
+
+  <script>
+    function formatCOP(val) {
+      return '$' + Math.round(val).toLocaleString('es-CO');
+    }
+
+    function calculateSolar() {
+      const kwh = Math.max(100, Number(document.getElementById('consumo-kwh').value) || 450);
+      const [sysLabel, costPerKwStr] = document.getElementById('sistema-tipo').value.split('|');
+      const costPerKw = Number(costPerKwStr);
+
+      // Estimación orientativa: ~65 kWh/mes por cada panel de 550W
+      const panels = Math.max(2, Math.ceil(kwh / 65));
+      const kwPeak = Number((panels * 0.55).toFixed(2));
+      const totalEstimate = Math.round(kwPeak * costPerKw);
+
+      document.getElementById('solar-panels').textContent = `${panels} paneles`;
+      document.getElementById('solar-kw').textContent = `${kwPeak} kWp`;
+      document.getElementById('solar-total').textContent = formatCOP(totalEstimate);
+
+      return {
+        placeType: document.getElementById('tipo-inmueble').value,
+        kwh,
+        sysLabel,
+        panels,
+        kwPeak,
+        totalEstimate
+      };
+    }
+
+    function sendSolarWhatsApp() {
+      const data = calculateSolar();
+      const message =
+        `Hola, quiero solicitar una evaluación inicial de sistema solar:\n\n` +
+        `• Espacio: ${data.placeType}\n` +
+        `• Consumo mensual estimado: ${data.kwh} kWh\n` +
+        `• Configuración: ${data.sysLabel}\n` +
+        `• Estimación inicial: ${data.panels} paneles (${data.kwPeak} kWp) — ~${formatCOP(data.totalEstimate)}\n\n` +
+        `¿Qué información adicional revisamos para cotizar con precisión?`;
+
+      const phone = '573000000000';
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    calculateSolar();
+  </script>
+</body>
+</html>
